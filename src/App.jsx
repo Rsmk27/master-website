@@ -280,7 +280,7 @@ const IntroOverlay = React.memo(({ onComplete }) => {
         {/* Progress Section */}
         <div className="mt-8 space-y-2">
           <div className="flex justify-between text-xs font-bold tracking-[0.2em] text-cyan-600">
-            <span>SYSTEM_BOOT</span>
+            <span>LAUNCHING...</span>
             <span>{Math.round(progress)}%</span>
           </div>
           <div className="h-1.5 w-full bg-cyan-950 rounded-full overflow-hidden border border-cyan-900/50">
@@ -347,15 +347,15 @@ export default function App() {
     },
     {
       title: "Digital Hostel Manager",
-      description: "Digital management system for hostel administration.",
+      description: "Digital management of Hostel Rooms.",
       link: "https://nh.rsmk.co.in",
       icon: Building,
       color: "from-blue-500 to-cyan-500",
       glowColor: "blue"
     },
     {
-      title: "AI Chatbot (Gemini)",
-      description: "Intelligent conversational agent powered by Gemini 1.5 Flash.",
+      title: "AI Chatbot",
+      description: "Intelligent conversational agent powered by Gemini 2.5 Flash.",
       link: "https://ai.rsmk.me",
       icon: Bot,
       color: "from-emerald-500 to-teal-500",
@@ -363,7 +363,7 @@ export default function App() {
     },
     {
       title: "Budget Buddy",
-      description: "Personal finance and expense tracking application.",
+      description: "Personal finance and expense tracking website.",
       link: "https://budgetbuddy.rsmk.co.in",
       icon: Wallet,
       color: "from-green-500 to-emerald-500",
@@ -379,7 +379,7 @@ export default function App() {
     },
     {
       title: "Uniq Visheshalu",
-      description: "Link-in-bio landing page for Instagram content.",
+      description: "Link-in-bio landing page for Insta Page.",
       link: "https://uniq-visheshalu.rsmk.me",
       icon: Link,
       color: "from-pink-500 to-fuchsia-500",
@@ -402,7 +402,7 @@ export default function App() {
       glowColor: "green"
     },
     {
-      title: "Solar Dewatering",
+      title: "Solar Powered Dewatering System",
       description: "Documentation for sustainable water management system.",
       link: "https://spds.rsmk.me",
       icon: Sun,
@@ -410,7 +410,7 @@ export default function App() {
       glowColor: "orange"
     },
     {
-      title: "Blogs Page",
+      title: "RSMK Blogs",
       description: "Personal blog sharing insights on code and engineering.",
       link: "https://blogs.rsmk.me",
       icon: PenTool,
@@ -540,7 +540,7 @@ export default function App() {
                   animate={floatAnimation}
                   className="text-cyan-400 font-mono tracking-[0.3em] uppercase text-sm md:text-base bg-cyan-900/10 px-4 py-2 rounded-full border border-cyan-500/20 backdrop-blur-md"
                 >
-                  Electrical Engineer & Web Developer
+                  Enthusiastic Engineer and Tech Explorer
                 </motion.p>
               </motion.div>
 
@@ -550,7 +550,7 @@ export default function App() {
                 transition={{ delay: 5.5, duration: 1 }}
                 className="absolute bottom-10 animate-bounce text-slate-500"
               >
-                <div className="text-xs font-mono mb-2 uppercase tracking-widest">Scroll for Projects</div>
+                <div className="text-xs font-mono mb-2 uppercase tracking-widest">Checkout my websites</div>
                 <div className="w-px h-8 bg-slate-500 mx-auto"></div>
               </motion.div>
 
