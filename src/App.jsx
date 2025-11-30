@@ -388,7 +388,7 @@ export default function App() {
     {
       title: "News Headlines",
       description: "Real-time news aggregator using public APIs.",
-      link: "https://new.rsmk.co.in",
+      link: "https://news.rsmk.co.in",
       icon: Newspaper,
       color: "from-red-600 to-orange-600",
       glowColor: "red"
@@ -412,7 +412,7 @@ export default function App() {
     {
       title: "Blogs Page",
       description: "Personal blog sharing insights on code and engineering.",
-      link: "https://blog.rsmk.me",
+      link: "https://blogs.rsmk.me",
       icon: PenTool,
       color: "from-sky-500 to-blue-500",
       glowColor: "blue"
