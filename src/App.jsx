@@ -6,6 +6,9 @@ import {
   ArrowLeftRight, Link, Newspaper, Leaf, Sun, PenTool, Send
 } from 'lucide-react';
 import HoverFooter from "@/components/demo/HoverFooter";
+import DecryptionText from "@/components/DecryptionText";
+import TechMarquee from "@/components/TechMarquee";
+import Cursor from "@/components/Cursor";
 
 /* --- UTILITY: CLASS MERGER (cn) --- */
 function cn(...classes) {
@@ -467,6 +470,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 overflow-x-hidden">
 
+      <Cursor />
+      <div className="bg-noise" />
+
       {/* Intro Overlay */}
       <AnimatePresence>
         {loading && (
@@ -483,7 +489,7 @@ export default function App() {
       <div className="relative z-10 flex flex-col min-h-screen">
 
         {/* HEADER: Social Links Only */}
-        <header className="fixed top-0 w-full p-4 md:p-6 z-40 flex justify-center md:justify-end items-center backdrop-blur-sm border-b border-white/5 bg-slate-950/50">
+        <header className="fixed top-0 w-full p-4 md:p-6 z-40 flex justify-center md:justify-end items-center backdrop-blur-md border-b border-white/20 bg-slate-950/50 shadow-[0_0_15px_rgba(6,182,212,0.1)]">
           <div className="flex gap-6 md:gap-8">
             <SocialLink href="https://github.com/Rsmk27" icon={Github} label="Github" />
             <SocialLink href="https://linkedin.com/in/rsmk27/" icon={Linkedin} label="LinkedIn" />
@@ -509,7 +515,20 @@ export default function App() {
                     animate="visible"
                   >
                     {"SRINIVASA".split("").map((char, i) => (
-                      <motion.span key={`srinivasa-${i}`} variants={letterVariants} className="inline-block hover:text-cyan-400 transition-colors duration-300">
+                      <motion.span key={`srinivasa-${i}`}
+                        variants={letterVariants}
+                        className="inline-block hover:text-cyan-400 transition-colors duration-300"
+                        animate={{
+                          skewX: [0, 10, -10, 0],
+                          filter: ["blur(0px)", "blur(2px)", "blur(0px)"],
+                        }}
+                        transition={{
+                          duration: 0.2,
+                          delay: Math.random() * 5 + 2,
+                          repeat: Infinity,
+                          repeatDelay: Math.random() * 5 + 2
+                        }}
+                      >
                         {char}
                       </motion.span>
                     ))}
@@ -523,7 +542,20 @@ export default function App() {
                     animate="visible"
                   >
                     {"MANIKANTA".split("").map((char, i) => (
-                      <motion.span key={`manikanta-${i}`} variants={letterVariants} className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-blue-600 hover:from-white hover:to-white transition-all duration-300">
+                      <motion.span key={`manikanta-${i}`}
+                        variants={letterVariants}
+                        className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-blue-600 hover:from-white hover:to-white transition-all duration-300"
+                        animate={{
+                          skewX: [0, 10, -10, 0],
+                          opacity: [1, 0.8, 1],
+                        }}
+                        transition={{
+                          duration: 0.2,
+                          delay: Math.random() * 5 + 2,
+                          repeat: Infinity,
+                          repeatDelay: Math.random() * 5 + 2
+                        }}
+                      >
                         {char}
                       </motion.span>
                     ))}
@@ -558,11 +590,16 @@ export default function App() {
           </WarpBackground>
         </section>
 
+        {/* TECH MARQUEE */}
+        <TechMarquee />
+
         {/* WEBSITES GRID */}
         <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full relative z-20 bg-slate-950/50 backdrop-blur-sm">
           <div className="flex items-center gap-4 mb-12">
             <div className="h-px bg-slate-700 flex-grow"></div>
-            <h2 className="text-xl font-mono text-slate-400 uppercase tracking-widest">My Websites</h2>
+            <h2 className="text-xl font-mono text-slate-400 uppercase tracking-widest">
+              <DecryptionText text="MY WEBSITES" />
+            </h2>
             <div className="h-px bg-slate-700 flex-grow"></div>
           </div>
 
