@@ -471,7 +471,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 overflow-x-hidden">
 
       <Cursor />
-      <div className="bg-noise" />
+
 
       {/* Intro Overlay */}
       <AnimatePresence>
