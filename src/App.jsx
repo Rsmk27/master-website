@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import HoverFooter from "@/components/demo/HoverFooter";
 import DecryptionText from "@/components/DecryptionText";
-import TechMarquee from "@/components/TechMarquee";
+
 import Cursor from "@/components/Cursor";
 
 /* --- UTILITY: CLASS MERGER (cn) --- */
@@ -163,25 +163,47 @@ const ProjectCard = React.memo(({ project, index }) => {
       <a href={project.link} target="_blank" rel="noreferrer" className="block h-full group">
         <div
           className={cn(
-            "aspect-square rounded-2xl relative flex flex-col items-center text-center p-6 gap-4 backdrop-blur-[5px]",
-            "bg-slate-900/40 border border-white/10 shadow-[0_1rem_2rem_-1rem_black]",
-            "hover:border-cyan-500/30 hover:bg-slate-900/60 transition-all duration-300"
+            "h-full rounded-2xl overflow-hidden flex flex-col",
+            "bg-slate-900/40 border border-white/10 shadow-lg",
+            "hover:border-cyan-500/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]",
+            "backdrop-blur-sm"
           )}
         >
-          <div className={`p-4 rounded-2xl bg-gradient-to-br ${project.color} bg-opacity-10 border border-white/10 shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
-            <IconComponent className="text-white" size={32} />
+          {/* Image Section - Fully visible */}
+          <div className="relative w-full aspect-video overflow-hidden border-b border-white/5">
+            <img
+              src={project.image}
+              alt={`${project.title} Preview`}
+              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+
+            {/* Subtle overlay only for depth, not obscuring */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            {/* Floating Icon */}
+            <div className={`absolute top-3 right-3 p-2 rounded-lg bg-slate-950/80 border border-white/10 backdrop-blur-md shadow-lg`}>
+              <IconComponent className="text-cyan-400" size={20} />
+            </div>
           </div>
 
-          <h3 className="text-2xl font-bold text-white mb-3 font-mono">
-            {project.title}
-          </h3>
+          {/* Content Section */}
+          <div className="flex flex-col flex-grow p-5 relative">
+            <h3 className="text-xl font-bold text-white mb-2 font-mono group-hover:text-cyan-400 transition-colors">
+              {project.title}
+            </h3>
 
-          <p className="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
-            {project.description}
-          </p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-3">
+              {project.description}
+            </p>
 
-          <div className="mt-auto flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-300">
-            Open Project <ExternalLink size={12} />
+            <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-4">
+              <span className="text-xs font-medium text-slate-500 font-mono hover:text-cyan-400 transition-colors truncate max-w-[60%]">
+                {project.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+              </span>
+              <div className="flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-widest ">
+                Visit <ExternalLink size={12} />
+              </div>
+            </div>
           </div>
         </div>
       </a>
@@ -313,6 +335,7 @@ export default function App() {
       description: "Personal showcase of all my web and engineering projects.",
       link: "https://its.rsmk.me",
       icon: User,
+      image: "/livepreview/portfoliolive.webp",
       color: "from-violet-500 to-purple-500",
       glowColor: "purple"
     },
@@ -321,6 +344,7 @@ export default function App() {
       description: "Documentation for Arduino-based automated air quality system.",
       link: "https://autoexhaustfan.rsmk.co.in",
       icon: Wind,
+      image: "/livepreview/aeflive.webp",
       color: "from-slate-500 to-gray-500",
       glowColor: "blue"
     },
@@ -329,6 +353,7 @@ export default function App() {
       description: "Digital cataloging system for efficient book management.",
       link: "https://books.rsmk.co.in",
       icon: Book,
+      image: "/livepreview/liblive.webp",
       color: "from-amber-500 to-orange-500",
       glowColor: "orange"
     },
@@ -337,6 +362,7 @@ export default function App() {
       description: "Gaming hub featuring 40+ browser-based games.",
       link: "https://playzone.rsmk.me",
       icon: Gamepad2,
+      image: "/livepreview/playzonelive.webp",
       color: "from-red-500 to-rose-500",
       glowColor: "red"
     },
@@ -345,6 +371,7 @@ export default function App() {
       description: "Precision resistor color code calculator for engineers.",
       link: "https://colorohm.rsmk.me",
       icon: Zap,
+      image: "/livepreview/colorohmlive.webp",
       color: "from-yellow-500 to-orange-500",
       glowColor: "orange"
     },
@@ -353,6 +380,7 @@ export default function App() {
       description: "Digital management of Hostel Rooms.",
       link: "https://nh.rsmk.co.in",
       icon: Building,
+      image: "/livepreview/nhlive.webp",
       color: "from-blue-500 to-cyan-500",
       glowColor: "blue"
     },
@@ -361,6 +389,7 @@ export default function App() {
       description: "Intelligent conversational agent powered by Gemini 2.5 Flash.",
       link: "https://ai.rsmk.me",
       icon: Bot,
+      image: "/livepreview/chatbotlive.webp",
       color: "from-emerald-500 to-teal-500",
       glowColor: "green"
     },
@@ -369,6 +398,7 @@ export default function App() {
       description: "Personal finance and expense tracking website.",
       link: "https://budgetbuddy.rsmk.co.in",
       icon: Wallet,
+      image: "/livepreview/bblive.webp",
       color: "from-green-500 to-emerald-500",
       glowColor: "green"
     },
@@ -377,6 +407,7 @@ export default function App() {
       description: "Universal tool for converting various measurement units.",
       link: "https://calc.rsmk.me",
       icon: ArrowLeftRight,
+      image: "/livepreview/uchlive.webp",
       color: "from-indigo-500 to-blue-500",
       glowColor: "purple"
     },
@@ -385,6 +416,7 @@ export default function App() {
       description: "Link-in-bio landing page for Insta Page.",
       link: "https://uniq-visheshalu.rsmk.me",
       icon: Link,
+      image: "/livepreview/uniqlive.webp",
       color: "from-pink-500 to-fuchsia-500",
       glowColor: "purple"
     },
@@ -393,6 +425,7 @@ export default function App() {
       description: "Real-time news aggregator using public APIs.",
       link: "https://news.rsmk.co.in",
       icon: Newspaper,
+      image: "/livepreview/newslive.webp",
       color: "from-red-600 to-orange-600",
       glowColor: "red"
     },
@@ -401,6 +434,7 @@ export default function App() {
       description: "Climate and environmental data dashboard.",
       link: "https://ecodash.rsmk.co.in",
       icon: Leaf,
+      image: "/livepreview/ecodashlive.webp",
       color: "from-green-400 to-lime-500",
       glowColor: "green"
     },
@@ -409,6 +443,7 @@ export default function App() {
       description: "Documentation for sustainable water management system.",
       link: "https://spds.rsmk.me",
       icon: Sun,
+      image: "/livepreview/spdslive.webp",
       color: "from-yellow-400 to-amber-500",
       glowColor: "orange"
     },
@@ -417,6 +452,7 @@ export default function App() {
       description: "Personal blog sharing insights on code and engineering.",
       link: "https://blogs.rsmk.me",
       icon: PenTool,
+      image: "/livepreview/blogslive.webp",
       color: "from-sky-500 to-blue-500",
       glowColor: "blue"
     }
@@ -591,7 +627,7 @@ export default function App() {
         </section>
 
         {/* TECH MARQUEE */}
-        <TechMarquee />
+
 
         {/* WEBSITES GRID */}
         <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full relative z-20 bg-slate-950/50 backdrop-blur-sm">
@@ -603,9 +639,9 @@ export default function App() {
             <div className="h-px bg-slate-700 flex-grow"></div>
           </div>
 
-          <div className="flex overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:pb-0 md:mx-0 md:px-0 no-scrollbar md:overflow-visible">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="flex-shrink-0 w-[85vw] sm:w-[350px] snap-center md:w-auto h-full">
+              <div key={index} className="h-full">
                 <ProjectCard project={project} index={index} />
               </div>
             ))}
