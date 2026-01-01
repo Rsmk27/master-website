@@ -76,9 +76,13 @@ const PortfolioPage = ({
                 <nav className="w-full px-6 py-4">
                     <div className="max-w-7xl mx-auto flex justify-between items-center">
                         <div className="flex items-center space-x-2">
-                            <div className="w-8 h-8 rounded-lg bg-border backdrop-blur-md border border-border flex items-center justify-center">
-                                <span className="geist-font text-sm font-bold text-foreground">{logo.initials}</span>
-                            </div>
+                            {logo.image ? (
+                                <img src={logo.image} alt={logo.name} className="w-8 h-8 rounded-lg object-contain" />
+                            ) : (
+                                <div className="w-8 h-8 rounded-lg bg-border backdrop-blur-md border border-border flex items-center justify-center">
+                                    <span className="geist-font text-sm font-bold text-foreground">{logo.initials}</span>
+                                </div>
+                            )}
                             <span className="geist-font text-lg font-medium text-foreground">{logo.name}</span>
                         </div>
                         <div className="hidden md:flex items-center space-x-8">
@@ -95,7 +99,7 @@ const PortfolioPage = ({
                 <main id="about" className="w-full min-h-screen flex flex-col items-center justify-center px-6 py-20">
                     <div className="max-w-6xl mx-auto text-center">
                         <div className="mb-8">
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 leading-tight">
+                            <h1 className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 leading-tight">
                                 {hero.titleLine1}
                                 <span className="gradient-text block tracking-tighter mt-2 pb-4">{hero.titleLine2Gradient}</span>
                             </h1>

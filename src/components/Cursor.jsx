@@ -46,7 +46,7 @@ const Cursor = () => {
     }, [cursorX, cursorY, isVisible]);
 
     return (
-        <div className={`pointer-events-none fixed inset-0 z-[9999] overflow-hidden transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`hidden md:block pointer-events-none fixed inset-0 z-[9999] overflow-hidden transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
 
             {/* 1. Large Ambient Lighting (The "Flashlight" Effect) */}
             <motion.div

@@ -23,10 +23,14 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    // Check if we've already shown the intro in this session
+    return !sessionStorage.getItem('rsmk_intro_shown');
+  });
 
   const handleIntroComplete = () => {
     setLoading(false);
+    sessionStorage.setItem('rsmk_intro_shown', 'true');
   };
 
   return (

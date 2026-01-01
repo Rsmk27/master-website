@@ -19,7 +19,7 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                 {/* Brand */}
                 <NavLink to="/" className="group flex items-center gap-3">
-                    <img src="/logo.png" alt="RSMK Logo" className="w-10 h-10 rounded shadow-[0_0_15px_rgba(6,182,212,0.3)] group-hover:scale-105 transition-transform duration-300" />
+                    <img src="/logo-v2.png" alt="RSMK Logo" className="w-10 h-10 rounded group-hover:scale-105 transition-transform duration-300" />
                     <div className="flex flex-col">
                         <span className="text-lg font-bold text-white tracking-tight leading-none group-hover:text-cyan-400 transition-colors">RSMK</span>
                         <span className="text-[10px] text-slate-400 uppercase tracking-[0.2em] leading-none">Technologies</span>
@@ -58,7 +58,7 @@ export default function Navbar() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="md:hidden border-t border-slate-800 bg-slate-950 overflow-hidden"
+                        className="md:hidden border-t border-slate-800 bg-black/95 backdrop-blur-xl h-[calc(100vh-5rem)] fixed top-20 left-0 w-full z-40 overflow-y-auto"
                     >
                         <div className="flex flex-col p-6 gap-4">
                             {navLinks.map((link) => (

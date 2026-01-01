@@ -3,14 +3,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { PortfolioPage } from '@/components/ui/starfall-portfolio-landing';
 import { ArrowDown } from 'lucide-react';
 
+import { useNavigate } from 'react-router-dom';
+
 export default function Hero() {
     const { scrollY } = useScroll();
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
     const y = useTransform(scrollY, [0, 300], [0, 100]);
+    const navigate = useNavigate();
 
     // Data to match current branding
     const rsmkData = {
-        logo: { initials: 'R', name: 'RSMK Technologies' },
+        logo: { initials: 'R', name: 'RSMK Technologies', image: '/logo-v2.png' },
         navLinks: [], // Hide internal nav
         resume: null, // Hide resume button
         hero: {
@@ -21,11 +24,11 @@ export default function Hero() {
         ctaButtons: {
             primary: {
                 label: 'Explore Ecosystem',
-                onClick: () => window.location.href = '/ecosystem'
+                onClick: () => navigate('/ecosystem')
             },
             secondary: {
                 label: 'Our Vision',
-                onClick: () => window.location.href = '/about'
+                onClick: () => navigate('/about')
             },
         },
         projects: [], // Hide projects section in Hero
@@ -63,7 +66,7 @@ export default function Hero() {
                      */}
                     <div className="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
                         <motion.img
-                            src="/logo.png"
+                            src="/logo-v2.png"
                             alt="RSMK Logo"
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1 }}
