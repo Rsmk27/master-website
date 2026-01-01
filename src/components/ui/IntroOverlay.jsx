@@ -7,12 +7,12 @@ export const IntroOverlay = React.memo(({ onComplete }) => {
 
     useEffect(() => {
         const bootSequence = [
-            { text: "INITIALIZING CORE SYSTEMS...", delay: 200 },
-            { text: "LOADING NEURAL MODULES...", delay: 800 },
-            { text: "ESTABLISHING SECURE CONNECTION...", delay: 1500 },
-            { text: "SYNCING PROJECT DATABASES...", delay: 2200 },
-            { text: "OPTIMIZING VISUAL INTERFACES...", delay: 2800 },
-            { text: "ACCESS GRANTED. WELCOME USER.", delay: 3400 },
+            { text: "BLINKING LEDS...", delay: 200 },
+            { text: "SENDING SIGNALS...", delay: 800 },
+            { text: "CONNECTING TO DATABASE...", delay: 1500 },
+            { text: "CALIBRATING SENSORS...", delay: 2200 },
+            { text: "CALLING API...", delay: 2800 },
+            { text: "SYSTEM ONLINE. WELCOME.", delay: 3400 },
         ];
 
         let timeouts = [];

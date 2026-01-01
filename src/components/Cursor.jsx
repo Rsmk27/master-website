@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 const Cursor = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isPointer, setIsPointer] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+
+    const cursorX = useMotionValue(-100);
+    const cursorY = useMotionValue(-100);
+
+    // Smooth spring for the outer glow (laggy follower)
+    const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
+    const cursorXSpring = useSpring(cursorX, springConfig);
+    const cursorYSpring = useSpring(cursorY, springConfig);
 
     useEffect(() => {
-        const updateMousePosition = (e) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
+        const moveCursor = (e) => {
+            cursorX.set(e.clientX);
+            cursorY.set(e.clientY);
 
-            // Check if hovering over clickable element
+            if (!isVisible) setIsVisible(true);
+
             const target = e.target;
             const isClickable =
                 target.tagName.toLowerCase() === 'a' ||
@@ -21,60 +31,74 @@ const Cursor = () => {
             setIsPointer(isClickable);
         };
 
-        window.addEventListener('mousemove', updateMousePosition);
+        const handleMouseLeave = () => setIsVisible(false);
+        const handleMouseEnter = () => setIsVisible(true);
+
+        window.addEventListener('mousemove', moveCursor);
+        document.addEventListener('mouseleave', handleMouseLeave);
+        document.addEventListener('mouseenter', handleMouseEnter);
 
         return () => {
-            window.removeEventListener('mousemove', updateMousePosition);
+            window.removeEventListener('mousemove', moveCursor);
+            document.removeEventListener('mouseleave', handleMouseLeave);
+            document.removeEventListener('mouseenter', handleMouseEnter);
         };
-    }, []);
+    }, [cursorX, cursorY, isVisible]);
 
     return (
-        <>
-            {/* Main Dot */}
+        <div className={`pointer-events-none fixed inset-0 z-[9999] overflow-hidden transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+
+            {/* 1. Large Ambient Lighting (The "Flashlight" Effect) */}
             <motion.div
-                className="fixed top-0 left-0 w-2 h-2 bg-cyan-400 rounded-full pointer-events-none z-[100] mix-blend-difference"
-                animate={{
-                    x: mousePosition.x - 4,
-                    y: mousePosition.y - 4,
-                    scale: isPointer ? 1.5 : 1
-                }}
-                transition={{
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 28,
-                    mass: 0.5
+                className="absolute w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.08)_0%,transparent_60%)]"
+                style={{
+                    x: cursorXSpring,
+                    y: cursorYSpring,
+                    translateX: "-50%",
+                    translateY: "-50%",
                 }}
             />
 
-            {/* Outer Ring */}
+            {/* 2. Electric Core Glow (Intense blue halo) */}
             <motion.div
-                className="fixed top-0 left-0 w-8 h-8 border border-cyan-500/50 rounded-full pointer-events-none z-[100] mix-blend-difference"
-                animate={{
-                    x: mousePosition.x - 16,
-                    y: mousePosition.y - 16,
+                className="absolute w-24 h-24 rounded-full bg-cyan-500/20 blur-xl mix-blend-screen"
+                style={{
+                    x: cursorX,
+                    y: cursorY,
+                    translateX: "-50%",
+                    translateY: "-50%",
                     scale: isPointer ? 1.5 : 1,
-                    borderColor: isPointer ? 'rgba(6, 182, 212, 0.8)' : 'rgba(6, 182, 212, 0.3)'
-                }}
-                transition={{
-                    type: "spring",
-                    stiffness: 250,
-                    damping: 20,
-                    mass: 0.8
                 }}
             />
 
-            {/* Crosshair lines (optional, for extra tech feel) */}
+            {/* 3. The Physical Cursor Dot (Sharp, white-hot center) */}
             <motion.div
-                className="fixed top-0 left-0 w-full h-px bg-cyan-500/10 pointer-events-none z-[99]"
-                animate={{ y: mousePosition.y }}
-                transition={{ type: "spring", stiffness: 500, damping: 50 }}
+                className="absolute bg-white rounded-full shadow-[0_0_10px_2px_rgba(6,182,212,0.8)]"
+                style={{
+                    x: cursorX,
+                    y: cursorY,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                    width: isPointer ? 12 : 8,
+                    height: isPointer ? 12 : 8,
+                }}
+                transition={{ duration: 0.1 }}
             />
+
+            {/* 4. Reactive Ring (Expands on click/hover) */}
             <motion.div
-                className="fixed top-0 left-0 h-full w-px bg-cyan-500/10 pointer-events-none z-[99]"
-                animate={{ x: mousePosition.x }}
-                transition={{ type: "spring", stiffness: 500, damping: 50 }}
+                className="absolute rounded-full border border-cyan-400/50"
+                style={{
+                    x: cursorXSpring,
+                    y: cursorYSpring,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                    width: isPointer ? 40 : 20,
+                    height: isPointer ? 40 : 20,
+                    opacity: isPointer ? 1 : 0.5,
+                }}
             />
-        </>
+        </div>
     );
 };
 
