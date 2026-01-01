@@ -47,9 +47,7 @@ function HoverFooter() {
                     {/* Brand section */}
                     <div className="flex flex-col space-y-4">
                         <div className="flex items-center space-x-2">
-                            <span className="text-[#3ca2fa] text-3xl font-extrabold">
-                                &hearts;
-                            </span>
+                            <img src="/logo.png" alt="RSMK" className="w-8 h-8 mr-2" />
                             <span className="text-white text-3xl font-bold">RSMK</span>
                         </div>
                         <p className="text-sm leading-relaxed text-gray-300 max-w-lg">
