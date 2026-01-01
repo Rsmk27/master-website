@@ -19,7 +19,7 @@ export default function Ecosystem() {
     }, [search, selectedDomain]);
 
     return (
-        <div className="min-h-screen bg-slate-950 pt-24">
+        <div className="min-h-screen pt-24">
             <div className="max-w-7xl mx-auto px-6 mb-12">
                 <div className="flex items-center gap-3 mb-6">
                     <Globe className="text-cyan-500" size={32} />
@@ -48,8 +48,8 @@ export default function Ecosystem() {
                         <button
                             onClick={() => setSelectedDomain('All')}
                             className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${selectedDomain === 'All'
-                                    ? 'bg-cyan-600 text-white'
-                                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                                ? 'bg-cyan-600 text-white'
+                                : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                                 }`}
                         >
                             All Systems
@@ -59,8 +59,8 @@ export default function Ecosystem() {
                                 key={d.id}
                                 onClick={() => setSelectedDomain(d.name)}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${selectedDomain === d.name
-                                        ? 'bg-cyan-600 text-white'
-                                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                                    ? 'bg-cyan-600 text-white'
+                                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                                     }`}
                             >
                                 {d.name.split(' & ')[0]} {/* Shorten name for tab */}

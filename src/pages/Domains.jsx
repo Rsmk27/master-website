@@ -17,7 +17,7 @@ export default function Domains() {
     }, [hash]);
 
     return (
-        <div className="min-h-screen bg-slate-950 pt-24">
+        <div className="min-h-screen pt-24">
             <div className="max-w-7xl mx-auto px-6 mb-16">
                 <h1 className="text-4xl font-bold text-white mb-6">Engineering Domains</h1>
                 <p className="text-slate-400 text-lg max-w-3xl">

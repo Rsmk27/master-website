@@ -11,10 +11,10 @@ export default function Home() {
     }, []);
 
     return (
-        <main className="min-h-screen bg-slate-950">
+        <main className="min-h-screen">
             <Hero />
 
-            <div className="relative z-10 bg-slate-950">
+            <div className="relative z-10">
                 {/* Introduction / About Preview */}
                 <section className="py-20 px-6 max-w-4xl mx-auto text-center">
                     <h2 className="text-2xl font-mono text-cyan-500 mb-6 uppercase tracking-widest">The Command Center</h2>

@@ -8,7 +8,7 @@ export default function Products() {
     const flagships = projects.filter(p => p.type === 'Flagship');
 
     return (
-        <div className="min-h-screen bg-slate-950 pt-24">
+        <div className="min-h-screen pt-24">
             <div className="max-w-6xl mx-auto px-6 mb-16">
                 <h1 className="text-4xl font-bold text-white mb-6">Products & Platforms</h1>
                 <p className="text-slate-400 text-lg max-w-3xl">

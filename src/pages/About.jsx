@@ -4,8 +4,8 @@ import HoverFooter from '@/components/demo/HoverFooter';
 
 export default function About() {
     return (
-        <div className="min-h-screen bg-slate-950 pt-24">
-            <div className="max-w-4xl mx-auto px-6">
+        <div className="min-h-screen pt-24 relative overflow-hidden">
+            <div className="max-w-4xl mx-auto px-6 relative z-10">
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,9 @@ export default function About() {
                     </a>
                 </div>
             </div>
-            <HoverFooter />
+            <div className="relative z-10">
+                <HoverFooter />
+            </div>
         </div>
     );
 }
