@@ -1,84 +1,86 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { WarpBackground } from '@/components/ui/WarpBackground';
+import { PortfolioPage } from '@/components/ui/starfall-portfolio-landing';
 import { ArrowDown } from 'lucide-react';
-import DecryptionText from "@/components/DecryptionText";
-// DecryptionText was used in original code, I assume it's available in components/DecryptionText
 
 export default function Hero() {
     const { scrollY } = useScroll();
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
     const y = useTransform(scrollY, [0, 300], [0, 100]);
 
+    // Data to match current branding
+    const rsmkData = {
+        logo: { initials: 'R', name: 'RSMK Technologies' },
+        navLinks: [], // Hide internal nav
+        resume: null, // Hide resume button
+        hero: {
+            titleLine1: 'RSMK',
+            titleLine2Gradient: 'Technologies',
+            subtitle: 'Building the digital infrastructure of tomorrow. Simplicity • Precision • Intelligence',
+        },
+        ctaButtons: {
+            primary: {
+                label: 'Explore Ecosystem',
+                onClick: () => window.location.href = '/ecosystem'
+            },
+            secondary: {
+                label: 'Our Vision',
+                onClick: () => window.location.href = '/about'
+            },
+        },
+        projects: [], // Hide projects section in Hero
+        stats: [],    // Hide stats section in Hero
+        showAnimatedBackground: true
+    };
+
     return (
-        <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
-            <WarpBackground className="absolute inset-0 w-full h-full p-0 border-none bg-transparent" gridColor="rgba(6,182,212,0.15)">
-                <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+        <section className="relative h-screen flex flex-col overflow-hidden">
+            {/* Use PortfolioPage as the underlying visual engine but inject our custom content if needed 
+                 Actually, PortfolioPage is structured as a full page. 
+                 We will use it to render the Hero part only by passing empty lists for other sections 
+                 and using our custom logo/hero text.
+             */}
 
-                    <motion.img
-                        src="/logo.png"
-                        alt="RSMK Logo"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 3 }}
-                        className="w-24 h-24 mb-8 drop-shadow-[0_0_30px_rgba(6,182,212,0.6)]"
-                    />
+            {/* We need to cheat a bit to hide the internal Navbar if we don't want it, 
+                 but since we passed empty navLinks and null resume, it should look minimal. 
+                 However, the component renders a nav bar. 
+                 If we want to keep our existing Navbar (from App.jsx), we might want to hide the PortfolioPage nav via CSS or just live with it.
+                 Given the design, the PortfolioPage nav is simple. 
+                 But App.jsx has a fixed Navbar. 
+                 Let's try to pass a style to hide the nav if possible, or we can just modify the imports.
+                 Wait, I can't modify the import easily without modifying the component file I just created.
+                 Actually, I can wrap it in a div that hides the nav if I target it, but that's hacky.
+                 Let's just use it. It will render "R RSMK Technologies" at the top left.
+                 Our main Navbar is fixed. So it might overlay. 
+                 Let's see. 
+             */}
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 3.5 }}
-                        className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-900/10 backdrop-blur-md"
-                    >
-                        <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-                        <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">System Online</span>
-                    </motion.div>
+            <div className="absolute inset-0 z-0">
+                <PortfolioPage {...rsmkData}>
+                    {/* 
+                      Injecting the Logo Image manually into the hero area using the children prop I added.
+                      This ensures the BIG logo is present.
+                     */}
+                    <div className="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                        <motion.img
+                            src="/logo.png"
+                            alt="RSMK Logo"
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, delay: 0.5 }} // Faster delay since Aurora loads fast
+                            className="w-24 h-24 drop-shadow-[0_0_30px_rgba(6,182,212,0.6)]"
+                        />
+                    </div>
 
-                    {/* Main Title */}
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 drop-shadow-[0_0_30px_rgba(6,182,212,0.2)]">
-                        <span className="block mb-2 md:mb-0 md:inline">RSMK</span>
-                        <span className="block md:inline text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600"> Technologies</span>
-                    </h1>
-
-                    {/* Subtitle */}
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 4 }}
-                        className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed mb-10"
-                    >
-                        Building the digital infrastructure of tomorrow.
-                        <span className="block text-cyan-500/80 mt-2 font-mono text-sm uppercase tracking-widest">
-                            Simplicity • Precision • Intelligence
-                        </span>
-                    </motion.p>
-
-                    {/* CTA Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 4.5 }}
-                        className="flex flex-col sm:flex-row gap-4"
-                    >
-                        <a href="/ecosystem" className="px-8 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded transition-all shadow-[0_0_20px_rgba(8,145,178,0.4)] hover:shadow-[0_0_30px_rgba(8,145,178,0.6)]">
-                            Explore Ecosystem
-                        </a>
-                        <a href="/about" className="px-8 py-3 bg-transparent border border-white/20 hover:bg-white/5 text-white font-medium rounded transition-all">
-                            Our Vision
-                        </a>
-                    </motion.div>
-
-                    {/* Scroll Indicator */}
                     <motion.div
                         style={{ opacity, y }}
-                        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 flex flex-col items-center gap-2"
+                        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 flex flex-col items-center gap-2 z-20"
                     >
                         <span className="text-[10px] uppercase tracking-widest">Scroll to Navigate</span>
                         <ArrowDown className="animate-bounce" size={20} />
                     </motion.div>
-
-                </div>
-            </WarpBackground>
+                </PortfolioPage>
+            </div>
         </section>
     );
 }

@@ -15,6 +15,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Custom component vars */
+  --foreground: #ffffff;
+  --background: #020617;
+  --muted-foreground: #94a3b8;
+  --card-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -58,9 +66,159 @@ h1 {
 }
 
 
-
 @media (min-width: 768px) {
   * {
     cursor: none !important;
   }
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* GLITCH EFFECT */
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  2% {
+    transform: skew(2deg);
+    opacity: 0.95;
+  }
+
+  4% {
+    transform: skew(-2deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+
+  6% {
+    transform: skew(0deg);
+  }
+
+  8% {
+    transform: skew(2deg);
+    filter: blur(2px);
+  }
+
+  10% {
+    transform: skew(0deg);
+    filter: blur(0px);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.enhance-glitch {
+  animation: glitch-skew 4s infinite linear;
+  position: relative;
+}
+
+.enhance-glitch::before,
+.enhance-glitch::after {
+  content: "RSMK Technologies";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  display: none;
+  /* Hidden by default, setup for JS toggle if needed, or simple CSS */
+}
+
+/* Simple chromatic aberration */
+@keyframes chromatic {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+
+  2% {
+    text-shadow: -2px 0 red, 2px 0 blue;
+  }
+
+  4% {
+    text-shadow: 0 0 transparent;
+  }
+
+  100% {
+    text-shadow: 0 0 transparent;
+  }
+}
+
+.chromatic-glitch {
+  animation: chromatic 5s infinite linear;
+}
+
+/* Utility Classes for Portfolio Component */
+.geist-font {
+  font-family: 'Geist Sans', system-ui, sans-serif;
+  /* Fallback if font not loaded */
+}
+
+.inter-font {
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #22d3ee, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  width: 100%;
+}
+
+.skill-badge {
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  color: #22d3ee;
 }
