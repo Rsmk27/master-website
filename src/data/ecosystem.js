@@ -38,17 +38,6 @@ export const projects = [
         glowColor: "orange"
     },
     {
-        title: "Zest Academy",
-        description: "Educational platform (referenced in request).",
-        link: "#", // Placeholder as it wasn't in original list but requested
-        type: "Flagship",
-        domain: "Education",
-        icon: Book,
-        image: null, // Need to handle missing image
-        color: "from-blue-500 to-cyan-500",
-        glowColor: "blue"
-    },
-    {
         title: "Auto Exhaust Fan",
         description: "Documentation for Arduino-based automated air quality system.",
         link: "https://autoexhaustfan.rsmk.co.in",

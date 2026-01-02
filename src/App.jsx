@@ -11,6 +11,7 @@ import Products from '@/pages/Products';
 import Domains from '@/pages/Domains';
 import Ecosystem from '@/pages/Ecosystem';
 import Contact from '@/pages/Contact';
+import Admin from '@/pages/Admin';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -126,6 +127,7 @@ export default function App() {
                 <Route path="/domains" element={<Domains />} />
                 <Route path="/ecosystem" element={<Ecosystem />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/admin" element={<Admin />} />
               </Routes>
             </div>
           </>

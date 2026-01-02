@@ -1,8 +1,4 @@
-"use client";
 import {
-    Mail,
-    Phone,
-    MapPin,
     Instagram,
     Twitter,
     Linkedin,
@@ -13,23 +9,6 @@ import { FooterBackgroundGradient } from "@/components/ui/hover-footer";
 import { TextHoverEffect } from "@/components/ui/hover-footer";
 
 function HoverFooter() {
-    // Contact info data
-    const contactInfo = [
-        {
-            icon: <Mail size={18} className="text-[#3ca2fa]" />,
-            text: "srinivasmanikantarajapantula@gmail.com",
-            href: "mailto:srinivasmanikantarajapantula@gmail.com",
-        },
-        {
-            icon: <Phone size={18} className="text-[#3ca2fa]" />,
-            text: "+91 6301165183",
-            href: "tel:+916301165183",
-        },
-        {
-            icon: <MapPin size={18} className="text-[#3ca2fa]" />,
-            text: "Srikakulam, Andhra Pradesh",
-        },
-    ];
 
     // Social media icons
     const socialLinks = [
@@ -43,42 +22,16 @@ function HoverFooter() {
     return (
         <footer className="bg-[#0F0F11]/10 relative h-fit rounded-3xl overflow-hidden m-8">
             <div className="max-w-7xl mx-auto p-14 z-40 relative">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 lg:gap-16 pb-12">
+                <div className="flex flex-col items-center text-center pb-12">
                     {/* Brand section */}
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col items-center space-y-4">
                         <div className="flex items-center space-x-2">
                             <img src="/logo-v2.png" alt="RSMK" className="w-8 h-8 mr-2" />
                             <span className="text-white text-3xl font-bold">RSMK</span>
                         </div>
-                        <p className="text-sm leading-relaxed text-gray-300 max-w-lg">
+                        <p className="text-sm leading-relaxed text-gray-300 max-w-2xl">
                             Electrical & Electronics Engineering Student | IoT & Embedded Systems Learner | Smart Energy & Automation Focus | Developing Practical, Reliable Tech Solutions
                         </p>
-                    </div>
-
-                    {/* Contact section */}
-                    <div>
-                        <h4 className="text-white text-lg font-semibold mb-6">
-                            Contact Me
-                        </h4>
-                        <ul className="space-y-4">
-                            {contactInfo.map((item, i) => (
-                                <li key={i} className="flex items-center space-x-3">
-                                    {item.icon}
-                                    {item.href ? (
-                                        <a
-                                            href={item.href}
-                                            className="hover:text-[#3ca2fa] transition-colors text-gray-300 break-all"
-                                        >
-                                            {item.text}
-                                        </a>
-                                    ) : (
-                                        <span className="hover:text-[#3ca2fa] transition-colors text-gray-300">
-                                            {item.text}
-                                        </span>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
                     </div>
                 </div>
 
