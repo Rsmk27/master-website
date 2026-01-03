@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rsmk.co.in/</loc>
+    <loc>https://rsmk.me/</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://rsmk.co.in/about</loc>
+    <loc>https://rsmk.me/about</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rsmk.co.in/products</loc>
+    <loc>https://rsmk.me/products</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rsmk.co.in/domains</loc>
+    <loc>https://rsmk.me/domains</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rsmk.co.in/ecosystem</loc>
+    <loc>https://rsmk.me/ecosystem</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rsmk.co.in/contact</loc>
+    <loc>https://rsmk.me/contact</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
