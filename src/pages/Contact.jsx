@@ -1,10 +1,12 @@
 import React from 'react';
 import { Mail, Linkedin, Twitter, Github, Send } from 'lucide-react';
 import HoverFooter from '@/components/demo/HoverFooter';
+import SEO from '@/components/common/SEO';
 
 export default function Contact() {
     return (
         <div className="min-h-screen pt-24">
+            <SEO title="Contact Us" description="Get in touch with RSMK Technologies for project partnerships and research discussions." />
             <div className="max-w-5xl mx-auto px-6">
                 <h1 className="text-4xl font-bold text-white mb-4">Contact & Collaboration</h1>
                 <p className="text-slate-400 text-lg mb-12">

@@ -3,6 +3,7 @@ import { projects, domains } from '@/data/ecosystem';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import { Search, Filter, Globe } from 'lucide-react';
 import HoverFooter from '@/components/demo/HoverFooter';
+import SEO from '@/components/common/SEO';
 
 export default function Ecosystem() {
     const [search, setSearch] = useState('');
@@ -20,6 +21,7 @@ export default function Ecosystem() {
 
     return (
         <div className="min-h-screen pt-24">
+            <SEO title="Ecosystem Grid" description="The complete master directory of all RSMK Technologies projects and systems." />
             <div className="max-w-7xl mx-auto px-6 mb-12">
                 <div className="flex items-center gap-3 mb-6">
                     <Globe className="text-cyan-500" size={32} />

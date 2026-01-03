@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import { projects } from '@/data/ecosystem';
 import { ExternalLink, ArrowRight, Zap, Target } from 'lucide-react';
 import HoverFooter from '@/components/demo/HoverFooter';
+import SEO from '@/components/common/SEO';
 
 export default function Products() {
     const flagships = projects.filter(p => p.type === 'Flagship');
 
     return (
         <div className="min-h-screen pt-24">
+            <SEO title="Products & Platforms" description="Explore our specialized platforms for finance, education, and engineering." />
             <div className="max-w-6xl mx-auto px-6 mb-16">
                 <h1 className="text-4xl font-bold text-white mb-6">Products & Platforms</h1>
                 <p className="text-slate-400 text-lg max-w-3xl">

@@ -3,6 +3,7 @@ import { domains, projects } from '@/data/ecosystem';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import { useLocation } from 'react-router-dom';
 import HoverFooter from '@/components/demo/HoverFooter';
+import SEO from '@/components/common/SEO';
 
 export default function Domains() {
     const { hash } = useLocation();
@@ -18,6 +19,7 @@ export default function Domains() {
 
     return (
         <div className="min-h-screen pt-24">
+            <SEO title="Engineering Domains" description="Discover our specialized research and development sectors including Web, IoT, and AI." />
             <div className="max-w-7xl mx-auto px-6 mb-16">
                 <h1 className="text-4xl font-bold text-white mb-6">Engineering Domains</h1>
                 <p className="text-slate-400 text-lg max-w-3xl">

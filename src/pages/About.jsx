@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import HoverFooter from '@/components/demo/HoverFooter';
+import SEO from '@/components/common/SEO';
 
 export default function About() {
     return (
         <div className="min-h-screen pt-24 relative overflow-hidden">
+            <SEO title="About Us" description="Learn about RSMK Technologies' mission, vision, and our journey from hardware to software." />
             <div className="max-w-5xl mx-auto px-6 relative z-10 pb-20">
 
                 <motion.div

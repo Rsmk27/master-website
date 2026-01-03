@@ -3,6 +3,7 @@ import Hero from '@/components/home/Hero';
 import EngineeringDomains from '@/components/home/EngineeringDomains';
 import FlagshipPlatforms from '@/components/home/FlagshipPlatforms';
 import HoverFooter from '@/components/demo/HoverFooter';
+import SEO from '@/components/common/SEO';
 
 export default function Home() {
     // Ensure we scroll to top on mount
@@ -12,6 +13,7 @@ export default function Home() {
 
     return (
         <main className="min-h-screen">
+            <SEO title="From Hardware to Software" />
             <Hero />
 
             <div className="relative z-10">
