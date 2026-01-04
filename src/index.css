@@ -222,3 +222,22 @@ h1 {
   border: 1px solid rgba(6, 182, 212, 0.2);
   color: #22d3ee;
 }
+
+/* Custom Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
