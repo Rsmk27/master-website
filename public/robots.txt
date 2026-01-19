@@ -1,5 +1,12 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+
+# Disallow admin pages
 Disallow: /admin
 
-Sitemap: https://rsmk.me/sitemap.xml
+# Sitemap location
+Sitemap: https://rsmk.co.in/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

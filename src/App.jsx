@@ -1,18 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import { IntroOverlay } from '@/components/ui/IntroOverlay';
 import Cursor from '@/components/Cursor';
+import BackToTop from '@/components/ui/BackToTop';
+import ThemeToggle from '@/components/ui/ThemeToggle';
+import CookieConsent from '@/components/ui/CookieConsent';
 
-// Pages
-import Home from '@/pages/Home';
-import About from '@/pages/About';
-import Products from '@/pages/Products';
-import Domains from '@/pages/Domains';
-import Ecosystem from '@/pages/Ecosystem';
-import Contact from '@/pages/Contact';
-import Admin from '@/pages/Admin';
-import NotFound from '@/pages/NotFound';
+// Lazy load pages for better performance
+const Home = lazy(() => import('@/pages/Home'));
+const About = lazy(() => import('@/pages/About'));
+const Products = lazy(() => import('@/pages/Products'));
+const Domains = lazy(() => import('@/pages/Domains'));
+const Ecosystem = lazy(() => import('@/pages/Ecosystem'));
+const Contact = lazy(() => import('@/pages/Contact'));
+const Admin = lazy(() => import('@/pages/Admin'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
+
+// Loading component
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-950">
+      <div className="text-center">
+        <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-cyan-500 mb-4"></div>
+        <p className="text-cyan-400 font-mono">Loading...</p>
+      </div>
+    </div>
+  );
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -121,16 +136,29 @@ export default function App() {
             <GlobalWatermark />
             <Navbar />
             <div className="relative z-10">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/domains" element={<Domains />} />
-                <Route path="/ecosystem" element={<Ecosystem />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/admin" element={<Admin />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/domains" element={<Domains />} />
+                  <Route path="/ecosystem" element={<Ecosystem />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/admin" element={<Admin />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </div>
+          </>
+        )}
+
+        {/* Global UI Components */}
+        {!loading && (
+          <>
+            <BackToTop />
+            <CookieConsent />
+            <div className="fixed top-24 right-8 z-50">
+              <ThemeToggle />
             </div>
           </>
         )}

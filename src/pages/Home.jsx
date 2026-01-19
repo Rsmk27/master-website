@@ -4,6 +4,10 @@ import EngineeringDomains from '@/components/home/EngineeringDomains';
 import FlagshipPlatforms from '@/components/home/FlagshipPlatforms';
 import HoverFooter from '@/components/demo/HoverFooter';
 import SEO from '@/components/common/SEO';
+import Stats from '@/components/ui/Stats';
+import Testimonials from '@/components/ui/Testimonials';
+import FAQ from '@/components/ui/FAQ';
+import Newsletter from '@/components/ui/Newsletter';
 
 export default function Home() {
     // Ensure we scroll to top on mount
@@ -20,15 +24,19 @@ export default function Home() {
                 {/* Introduction / About Preview */}
                 <section className="py-20 px-6 max-w-4xl mx-auto text-center">
                     <h2 className="text-2xl font-mono text-cyan-500 mb-6 uppercase tracking-widest">The Command Center</h2>
-                    <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">
+                    <p className="text-xl md:text-2xl text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed font-light">
                         We unify diverse engineering disciplines under one authoritative brand.
-                        From <span className="text-white font-medium">smart energy systems</span> to <span className="text-white font-medium">next-gen software</span>,
+                        From <span className="text-white dark:text-white light:text-slate-900 font-medium">smart energy systems</span> to <span className="text-white dark:text-white light:text-slate-900 font-medium">next-gen software</span>,
                         RSMK Technologies is the foundation for a sustainable and intelligent future.
                     </p>
                 </section>
 
+                <Stats />
                 <EngineeringDomains />
                 <FlagshipPlatforms />
+                <Testimonials />
+                <FAQ />
+                <Newsletter />
 
                 {/* Live Ecosystem Map Preview / CTA */}
                 <section className="py-24 px-6 bg-gradient-to-b from-slate-900 to-slate-950 text-center">
@@ -44,3 +52,4 @@ export default function Home() {
         </main>
     );
 }
+

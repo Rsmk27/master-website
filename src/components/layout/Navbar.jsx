@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Globe, Layers, Cpu, Users, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Search from '@/components/ui/Search';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -40,6 +41,7 @@ export default function Navbar() {
                             {link.name}
                         </NavLink>
                     ))}
+                    <Search />
                 </div>
 
                 {/* Mobile Toggle */}
