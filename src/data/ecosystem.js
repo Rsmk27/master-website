@@ -7,7 +7,7 @@ export const projects = [
     {
         title: "My Portfolio",
         description: "Personal showcase of all my web and engineering projects.",
-        link: "https://its.rsmk.me",
+        link: "https://its.rsmk.co.in",
         type: "Portfolio",
         domain: "Software Systems",
         icon: User,
@@ -29,7 +29,7 @@ export const projects = [
     {
         title: "ColorOhm",
         description: "Precision resistor color code calculator for engineers.",
-        link: "https://colorohm.rsmk.me",
+        link: "https://colorohm.rsmk.co.in",
         type: "Flagship",
         domain: "Electronics",
         icon: Zap,
@@ -62,7 +62,7 @@ export const projects = [
     {
         title: "PlayZone",
         description: "Gaming hub featuring 40+ browser-based games.",
-        link: "https://playzone.rsmk.me",
+        link: "https://playzone.rsmk.co.in",
         type: "Project",
         domain: "Research & Innovation",
         icon: Gamepad2,
@@ -84,7 +84,7 @@ export const projects = [
     {
         title: "AI Chatbot",
         description: "Intelligent conversational agent powered by Gemini 2.5 Flash.",
-        link: "https://ai.rsmk.me",
+        link: "https://ai.rsmk.co.in",
         type: "Project",
         domain: "AI & Automation",
         icon: Bot,
@@ -95,7 +95,7 @@ export const projects = [
     {
         title: "Universal Converter",
         description: "Universal tool for converting various measurement units.",
-        link: "https://calc.rsmk.me",
+        link: "https://calc.rsmk.co.in",
         type: "Project",
         domain: "Research & Innovation",
         icon: ArrowLeftRight,
@@ -106,7 +106,7 @@ export const projects = [
     {
         title: "Uniq Visheshalu",
         description: "Link-in-bio landing page for Insta Page.",
-        link: "https://uniq-visheshalu.rsmk.me",
+        link: "https://uniq-visheshalu.rsmk.co.in",
         type: "Project",
         domain: "Research & Innovation",
         icon: Link,
@@ -139,7 +139,7 @@ export const projects = [
     {
         title: "Solar Powered Dewatering System",
         description: "Documentation for sustainable water management system.",
-        link: "https://spds.rsmk.me",
+        link: "https://spds.rsmk.co.in",
         type: "Project",
         domain: "Smart Energy & Green Tech",
         icon: Sun,
@@ -150,7 +150,7 @@ export const projects = [
     {
         title: "RSMK Blogs",
         description: "Personal blog sharing insights on code and engineering.",
-        link: "https://blogs.rsmk.me",
+        link: "https://blogs.rsmk.co.in",
         type: "Project",
         domain: "Research & Innovation",
         icon: PenTool,
