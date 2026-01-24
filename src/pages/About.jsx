@@ -1,147 +1,76 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import HoverFooter from '@/components/demo/HoverFooter';
-import SEO from '@/components/common/SEO';
 
 export default function About() {
     return (
-        <div className="min-h-screen pt-24 relative overflow-hidden">
-            <SEO title="About Us" description="Learn about RSMK Technologies' mission, vision, and our journey from hardware to software." />
-            <div className="max-w-5xl mx-auto px-6 relative z-10 pb-20">
+        <div className="min-h-screen pt-24 container-padding pb-20">
+            <Helmet>
+                <title>About Us | RSMK Technologies - Our Story & Vision</title>
+                <meta name="description" content="Learn about RSMK Technologies' mission, vision, and our journey from hardware to software engineering excellence." />
+            </Helmet>
 
+            <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
                     className="mb-16 text-center"
                 >
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                        About <span className="text-cyan-500">RSMK Technologies</span>
+                    <h1 className="text-5xl md:text-6xl font-bold font-heading text-secondary dark:text-white mb-6 tracking-tight">
+                        About <span className="text-primary">RSMK Technologies</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-slate-300 font-light">
-                        Engineering Tomorrow — From <span className="text-cyan-400">Hardware</span> to <span className="text-cyan-400">Software</span>
+                    <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+                        Engineering Tomorrow — From <span className="text-primary font-medium">Hardware</span> to <span className="text-primary font-medium">Software</span>
                     </p>
                 </motion.div>
 
-                <div className="space-y-20 text-slate-300 leading-relaxed text-lg">
+                <div className="space-y-16 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
                     {/* Introduction */}
-                    <section className="max-w-3xl mx-auto text-center">
-                        <p className="mb-6">
-                            RSMK Technologies is an independent engineering and technology venture founded with a simple belief:
-                            <br />
-                            <span className="text-white font-medium">great innovation is born when classical engineering meets modern intelligence.</span>
+                    <section className="text-center max-w-3xl mx-auto">
+                        <p className="mb-8">
+                            RSMK Technologies is an independent engineering and technology consulting firm founded with a simple belief:
+                        </p>
+                        <p className="font-heading text-2xl md:text-3xl font-bold text-secondary dark:text-white mb-8 leading-tight">
+                            Great innovation is born when classical engineering meets modern intelligence.
                         </p>
                         <p>
-                            We operate at the intersection of Electrical Engineering, Embedded Systems, Software Development, and Smart Digital Products, delivering solutions that are practical, scalable, and built for real-world impact.
+                            We operate at the intersection of Electrical Engineering, Embedded Systems, and Software Development, delivering solutions that are practical, scalable, and built for real-world impact.
                         </p>
-                        <p className="mt-6">
-                            Our work spans across IoT systems, intelligent web platforms, productivity tools, educational technology, and sustainable engineering concepts — all driven by a commitment to quality, simplicity, and long-term relevance.
-                        </p>
-                    </section>
-
-                    {/* Who We Are */}
-                    <section>
-                        <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-500 pl-4">Who We Are</h2>
-                        <div className="space-y-6">
-                            <p>
-                                RSMK Technologies was created by an Electrical & Electronics Engineering enthusiast with a deep respect for core engineering principles and a forward-looking mindset toward emerging technologies.
-                            </p>
-                            <div className="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
-                                <p className="mb-4 font-medium text-white">We believe in building things the right way:</p>
-                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {['Strong fundamentals', 'Clean design', 'Thoughtful engineering', 'Measurable value'].map((item) => (
-                                        <li key={item} className="flex items-center space-x-2">
-                                            <span className="w-2 h-2 bg-cyan-500 rounded-full" />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <p className="mt-6 italic text-cyan-400">
-                                    Not trends. Not shortcuts. Just solid engineering, done properly.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* What We Build */}
-                    <section>
-                        <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-500 pl-4">What We Build</h2>
-                        <p className="mb-8">We develop products and platforms that combine hardware-level thinking with modern software execution:</p>
-
-                        <div className="grid md:grid-cols-3 gap-6">
-                            {/* Engineering Products */}
-                            <div className="bg-slate-900/40 p-6 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors">
-                                <div className="text-4xl mb-4">⚙️</div>
-                                <h3 className="text-xl font-bold text-white mb-4">Engineering Products</h3>
-                                <ul className="space-y-2 text-sm">
-                                    <li>Embedded & IoT systems</li>
-                                    <li>Smart energy & automation concepts</li>
-                                    <li>Hardware-software integrated solutions</li>
-                                </ul>
-                            </div>
-
-                            {/* Digital Platforms */}
-                            <div className="bg-slate-900/40 p-6 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors">
-                                <div className="text-4xl mb-4">🌐</div>
-                                <h3 className="text-xl font-bold text-white mb-4">Digital Platforms</h3>
-                                <ul className="space-y-3 text-sm">
-                                    <li><strong className="text-cyan-400">ColorOhm</strong> — Resistor color code calculator & electronics toolkit</li>
-                                    <li><strong className="text-cyan-400">BudgetBuddy</strong> — Smart personal finance & expense management system</li>
-                                    <li><strong className="text-cyan-400">Zest Academy</strong> — Engineering learning & skill development platform</li>
-                                </ul>
-                            </div>
-
-                            {/* Innovation Focus Areas */}
-                            <div className="bg-slate-900/40 p-6 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors">
-                                <div className="text-4xl mb-4">🧠</div>
-                                <h3 className="text-xl font-bold text-white mb-4">Innovation Focus Areas</h3>
-                                <ul className="space-y-2 text-sm">
-                                    <li>Smart Energy Systems</li>
-                                    <li>Autonomous & Intelligent Grids</li>
-                                    <li>Green Technology</li>
-                                    <li>Vibe-driven product engineering</li>
-                                    <li>Practical AI integration in real applications</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Philosophy */}
-                    <section>
-                        <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-500 pl-4">Our Philosophy</h2>
-                        <div className="bg-gradient-to-r from-slate-900 via-slate-900 to-transparent p-8 rounded-2xl border-l-4 border-cyan-500">
-                            <p className="text-xl text-white italic mb-6">
-                                "We do not build projects for display. We build systems that solve problems."
-                            </p>
-                            <p className="mb-4">We value:</p>
-                            <ul className="space-y-2 mb-6">
-                                <li>• Engineering discipline over shortcuts</li>
-                                <li>• Long-term thinking over temporary success</li>
-                                <li>• Function before fashion</li>
-                                <li>• Impact over noise</li>
-                            </ul>
-                            <p className="text-cyan-400 font-medium">
-                                Every product from RSMK Technologies is designed to be: useful, understandable, and dependable.
-                            </p>
-                        </div>
                     </section>
 
                     {/* Mission & Vision */}
                     <div className="grid md:grid-cols-2 gap-8">
-                        <section className="bg-slate-900/30 p-8 rounded-2xl border border-slate-800">
-                            <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-                            <p>To design and deliver intelligent, sustainable, and practical engineering solutions that empower individuals, businesses, and future engineers.</p>
-                        </section>
+                        <div className="glass-panel p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                            <h2 className="text-2xl font-bold font-heading text-secondary dark:text-white mb-4">Our Mission</h2>
+                            <p>To design and deliver intelligent, sustainable, and practical engineering solutions that empower businesses to scale efficiently.</p>
+                        </div>
 
-                        <section className="bg-slate-900/30 p-8 rounded-2xl border border-slate-800">
-                            <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
-                            <p>To grow RSMK Technologies into a trusted engineering brand — known for reliability, innovation, and meaningful contribution to the future of technology.</p>
-                        </section>
+                        <div className="glass-panel p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                            <h2 className="text-2xl font-bold font-heading text-secondary dark:text-white mb-4">Our Vision</h2>
+                            <p>To be the trusted engineering partner for enterprises worldwide — known for reliability, innovation, and technical excellence.</p>
+                        </div>
                     </div>
 
+                    {/* Philosophy */}
+                    <section className="bg-slate-50 dark:bg-slate-900/50 p-10 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <h2 className="text-3xl font-bold font-heading text-secondary dark:text-white mb-8 border-l-4 border-primary pl-6">Our Philosophy</h2>
+                        <blockquote className="text-xl italic text-slate-700 dark:text-slate-200 mb-8 font-serif leading-relaxed">
+                            "We do not build projects for display. We build systems that solve problems."
+                        </blockquote>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 className="font-bold text-lg text-secondary dark:text-white mb-2">Detailed Engineering</h3>
+                                <p className="text-base text-slate-600 dark:text-slate-400">We value discipline over shortcuts. Every line of code and every circuit is reviewed for quality to ensure robust performance.</p>
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-lg text-secondary dark:text-white mb-2">Long-Term Thinking</h3>
+                                <p className="text-base text-slate-600 dark:text-slate-400">We build solutions that stand the test of time, prioritizing maintainability, security, and scalability from the start.</p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </div>
-            <div className="relative z-10">
-                <HoverFooter />
             </div>
         </div>
     );

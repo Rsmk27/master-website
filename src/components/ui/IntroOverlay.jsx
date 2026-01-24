@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/context/ThemeContext';
 
 // SVG Animation Component
 const LogoAnimation = ({ onComplete }) => {
     const svgRef = useRef(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [isFilled, setIsFilled] = useState(false);
+    const { theme } = useTheme();
+
+    // Define colors based on theme
+    const accentColor = theme === 'dark' ? '#5ff2ff' : '#2563EB';
 
     useEffect(() => {
         // Fetch and inject the SVG
@@ -38,7 +43,7 @@ const LogoAnimation = ({ onComplete }) => {
                     if (svg) initializeSvgAnimation(svg);
                 }
             });
-    }, []);
+    }, [theme]); // Re-run if theme changes to update color logic effectively
 
     const initializeSvgAnimation = (svgElement) => {
         const elements = svgElement.querySelectorAll('path, circle, line, polyline, rect, polygon');
@@ -49,7 +54,7 @@ const LogoAnimation = ({ onComplete }) => {
             if (originalFill && originalFill !== 'none' && originalFill !== 'transparent') {
                 el.style.setProperty('--orig-fill', originalFill);
             } else {
-                el.style.setProperty('--orig-fill', '#5ff2ff');
+                el.style.setProperty('--orig-fill', accentColor);
             }
             el.setAttribute('fill', 'transparent');
         });
@@ -75,22 +80,6 @@ const LogoAnimation = ({ onComplete }) => {
                 ref={svgRef}
                 className={`logo-svg-wrapper ${isAnimating ? 'animating' : ''} ${isFilled ? 'filled' : ''}`}
             />
-        </div>
-    );
-};
-
-export const IntroOverlay = React.memo(({ onComplete }) => {
-    return (
-        <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center font-mono p-4 text-cyan-500 overflow-hidden"
-        >
-            {/* Background Grid Effect */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none" />
-
-            {/* Logo Animation CSS */}
             <style>{`
                 .logo-animation-container {
                     width: 320px;
@@ -103,7 +92,7 @@ export const IntroOverlay = React.memo(({ onComplete }) => {
                 .logo-svg-wrapper {
                     width: 100%;
                     height: auto;
-                    filter: drop-shadow(0 0 20px rgba(95, 242, 255, 0.3));
+                    filter: drop-shadow(0 0 20px ${theme === 'dark' ? 'rgba(95, 242, 255, 0.3)' : 'rgba(37, 99, 235, 0.3)'});
                 }
 
                 .logo-svg-wrapper svg {
@@ -117,7 +106,7 @@ export const IntroOverlay = React.memo(({ onComplete }) => {
                 .logo-svg-wrapper svg polyline,
                 .logo-svg-wrapper svg rect,
                 .logo-svg-wrapper svg polygon {
-                    stroke: #5ff2ff;
+                    stroke: ${accentColor};
                     stroke-width: 2;
                     fill: transparent;
                     stroke-dasharray: 2000;
@@ -140,7 +129,7 @@ export const IntroOverlay = React.memo(({ onComplete }) => {
                 .logo-svg-wrapper.filled svg polyline,
                 .logo-svg-wrapper.filled svg rect,
                 .logo-svg-wrapper.filled svg polygon {
-                    fill: var(--orig-fill, #5ff2ff);
+                    fill: var(--orig-fill, ${accentColor});
                     stroke: transparent;
                     stroke-dashoffset: 0;
                 }
@@ -149,6 +138,20 @@ export const IntroOverlay = React.memo(({ onComplete }) => {
                     to { stroke-dashoffset: 0; }
                 }
             `}</style>
+        </div>
+    );
+};
+
+export const IntroOverlay = React.memo(({ onComplete }) => {
+    return (
+        <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="fixed inset-0 z-[100] bg-white dark:bg-slate-950 flex flex-col items-center justify-center font-mono p-4 overflow-hidden transition-colors duration-300"
+        >
+            {/* Background Grid Effect */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(37,99,235,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none" />
 
             <div className="relative z-10 w-full flex flex-col items-center justify-center">
                 <LogoAnimation onComplete={onComplete} />
@@ -158,10 +161,10 @@ export const IntroOverlay = React.memo(({ onComplete }) => {
                     transition={{ delay: 0.5, duration: 0.8 }}
                     className="mt-4 text-center z-20"
                 >
-                    <h1 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-white tracking-widest drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
+                    <h1 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-primary dark:from-white dark:via-cyan-100 dark:to-white tracking-widest drop-shadow-sm dark:drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
                         RSMK TECHNOLOGIES
                     </h1>
-                    <p className="text-cyan-400/80 text-[10px] md:text-xs tracking-[0.4em] font-medium uppercase mt-3">
+                    <p className="text-primary/70 dark:text-cyan-400/80 text-[10px] md:text-xs tracking-[0.4em] font-medium uppercase mt-3">
                         From Hardware to Software
                     </p>
                 </motion.div>
