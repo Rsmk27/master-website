@@ -1,36 +1,35 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import { Code, Cpu, Activity, Lightbulb } from 'lucide-react';
 
 const services = [
     {
         id: 'software-development',
-        title: 'Software Development',
-        description: 'Custom enterprise software capability. Web, mobile, and cloud solutions built for scale and performance.',
+        title: 'Software Products',
+        description: 'Web platforms, automation tools, and utility applications shipped as real, usable products.',
         icon: Code,
-        features: ['Custom Web Applications', 'Mobile App Development', 'Cloud Architecture', 'API Integration']
+        features: ['Product Prototypes', 'Frontend + Backend Systems', 'Cloud Deployments', 'API Integrations']
     },
     {
         id: 'iot-embedded-systems',
-        title: 'IoT & Embedded Systems',
-        description: 'Hardware-software convergence. We build smart devices and integrated systems that connect the physical and digital worlds.',
+        title: 'IoT & Embedded Builds',
+        description: 'Hardware-software experiments that connect sensors, microcontrollers, and intelligent automation workflows.',
         icon: Cpu,
-        features: ['Hardware Design', 'Firmware Development', 'Sensor Integration', 'Industrial IoT']
+        features: ['Firmware Experiments', 'Sensor Integration', 'Device Dashboards', 'Rapid Prototyping']
     },
     {
         id: 'ai-automation',
         title: 'AI & Automation',
-        description: 'Intelligent process automation and data-driven decision making systems to optimize business operations.',
+        description: 'Practical AI tools and workflows focused on speed, reliability, and useful day-to-day outcomes.',
         icon: Activity,
-        features: ['Machine Learning Models', 'Process Automation', 'Data Analytics', 'Smart Chatbots']
+        features: ['AI Assistants', 'Automation Scripts', 'Data Workflows', 'Prompt-driven Interfaces']
     },
     {
         id: 'smart-energy',
-        title: 'Smart Energy Solutions',
-        description: 'Sustainable technology for a greener future. Energy management and optimization for modern infrastructure.',
+        title: 'Smart Energy Experiments',
+        description: 'Hands-on projects around energy monitoring, optimization, and sustainability-focused engineering.',
         icon: Lightbulb,
-        features: ['Energy Monitoring', 'Smart Grid Solutions', 'Green Tech', 'Efficiency Consulting']
+        features: ['Energy Dashboards', 'Sustainable Systems', 'Green Tech Prototypes', 'Measurement Tooling']
     }
 ];
 
@@ -38,15 +37,14 @@ export default function Services() {
     return (
         <div className="pt-24 pb-20 container-padding min-h-screen">
             <Helmet>
-                <title>Services | RSMK Technologies - Software, IoT & AI Solutions</title>
-                <meta name="description" content="Explore our technology services: Software Development, IoT & Embedded Systems, AI & Automation, and Smart Energy Solutions." />
+                <title>Build Areas | RSMK Projects</title>
+                <meta name="description" content="Explore the main technical areas where RSMK builds software products, embedded systems, AI tools, and energy experiments." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Our Services</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Build Areas</h1>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Comprehensive technology solutions tailored to your business needs.
-                    We combine engineering excellence with strategic innovation to drive growth.
+                    Instead of service packages, this page maps the domains where I keep building and shipping projects.
                 </p>
             </div>
 
@@ -64,7 +62,7 @@ export default function Services() {
                             {service.description}
                         </p>
 
-                        <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-3">Key Capabilities</h3>
+                        <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-3">Current Focus</h3>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
                             {service.features.map((feature, i) => (
                                 <li key={i} className="flex items-center text-slate-600 dark:text-slate-400 text-sm">
@@ -73,10 +71,6 @@ export default function Services() {
                                 </li>
                             ))}
                         </ul>
-
-                        <Link to={`/contact?service=${service.id}`} className="inline-flex items-center justify-center px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-md transition-colors font-medium">
-                            Consult with us
-                        </Link>
                     </div>
                 ))}
             </div>

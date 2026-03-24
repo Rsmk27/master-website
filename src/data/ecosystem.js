@@ -1,6 +1,6 @@
 import {
     User, Wind, Book, Gamepad2, Building, Bot, Wallet,
-    ArrowLeftRight, Link, Newspaper, Leaf, Sun, PenTool, Zap
+    ArrowLeftRight, Link, Newspaper, Leaf, Sun, PenTool, Zap, Smartphone, ShieldAlert
 } from 'lucide-react';
 
 export const projects = [
@@ -35,6 +35,18 @@ export const projects = [
         icon: Zap,
         image: "/livepreview/colorohmlive.webp",
         color: "from-yellow-500 to-orange-500",
+        glowColor: "orange"
+    },
+    {
+        title: "ColorOhm App",
+        description: "Android app for decoding and encoding resistor color codes with quick, practical lookup in the field.",
+        link: "https://github.com/Rsmk27/colorohm-reactapp",
+        downloadLink: "https://github.com/Rsmk27/colorohm-reactapp/releases/download/v1.0.0/ColorOhm-v1.0.0.apk",
+        type: "Project",
+        domain: "Electronics",
+        icon: Smartphone,
+        image: "/livepreview/colorohm-android-app.webp",
+        color: "from-amber-500 to-yellow-500",
         glowColor: "orange"
     },
     {
@@ -146,6 +158,17 @@ export const projects = [
         image: "/livepreview/spdslive.webp",
         color: "from-yellow-400 to-amber-500",
         glowColor: "orange"
+    },
+    {
+        title: "Firefighter Monitoring Device (SFMD)",
+        description: "Real-time IoT firefighter safety platform with wearable telemetry (motion, temperature, GPS), Firebase streaming, live commander dashboard, and firmware state machine logic across STARTUP, NORMAL, WARNING, EMERGENCY, and SOS states.",
+        link: "https://github.com/Rsmk27",
+        type: "Project",
+        domain: "IoT & Embedded Systems",
+        icon: ShieldAlert,
+        image: "/livepreview/firefighter-monitoring-device.webp",
+        color: "from-rose-500 to-red-600",
+        glowColor: "red"
     },
     {
         title: "RSMK Blogs",

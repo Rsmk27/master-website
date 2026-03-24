@@ -6,15 +6,15 @@ export default function Projects() {
     return (
         <div className="pt-24 pb-20 container-padding min-h-screen">
             <Helmet>
-                <title>Projects | RSMK Technologies - Engineering Case Studies</title>
-                <meta name="description" content="Explore our portfolio of successful projects in Software, IoT, AI, and Smart Systems." />
+                <title>Projects | RSMK Build Portfolio</title>
+                <meta name="description" content="Explore live software products, embedded systems, AI tools, and engineering experiments built under RSMK." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Our Projects</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Project Portfolio</h1>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Case studies and solutions delivered across various domains.
-                    Real-world applications of our engineering expertise.
+                    Real builds across software, IoT, AI, and green-tech experiments.
+                    Every card links to a live project or working demo.
                 </p>
             </div>
 
@@ -22,7 +22,7 @@ export default function Projects() {
                 {projects.map((project, index) => {
                     const Icon = project.icon;
                     return (
-                        <a href={project.link} key={index} target="_blank" rel="noopener noreferrer" className="group block h-full">
+                        <div key={index} className="group block h-full">
                             <div className="glass-panel h-full rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                                 {project.image ? (
                                     <div className="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
@@ -45,12 +45,30 @@ export default function Projects() {
                                     <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
                                         {project.description}
                                     </p>
-                                    <span className="text-primary text-sm font-semibold flex items-center group-hover:translate-x-1 transition-transform">
-                                        View Case Study &rarr;
-                                    </span>
+                                    <div className="flex flex-wrap items-center gap-3 mt-2">
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-primary text-sm font-semibold inline-flex items-center group-hover:translate-x-1 transition-transform"
+                                        >
+                                            Open Project &rarr;
+                                        </a>
+
+                                        {project.downloadLink && (
+                                            <a
+                                                href={project.downloadLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center rounded-md px-3 py-1.5 text-xs font-semibold bg-primary text-white hover:bg-blue-700 transition-colors"
+                                            >
+                                                Download App
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     );
                 })}
             </div>

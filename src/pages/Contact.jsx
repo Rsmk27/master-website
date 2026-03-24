@@ -6,15 +6,15 @@ export default function Contact() {
     return (
         <div className="min-h-screen pt-24 pb-20 container-padding">
             <Helmet>
-                <title>Contact Us | RSMK Technologies - Partnerships & Inquiries</title>
-                <meta name="description" content="Connect with RSMK Technologies for software development services, consulting, and engineering partnerships." />
+                <title>Contact | Srinivas Personal Showcase</title>
+                <meta name="description" content="Contact Srinivas for project collaborations, technical discussions, and engineering opportunities." />
             </Helmet>
 
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl md:text-5xl font-bold font-heading text-secondary dark:text-white mb-6">Contact & Collaboration</h1>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-                        Ready to start your next project? Reach out for professional inquiries, technology consulting, and partnerships.
+                        Reach out if you want to discuss my work, collaborate on a build, or exchange technical ideas.
                     </p>
                 </div>
 
@@ -27,7 +27,7 @@ export default function Contact() {
                         <a href="mailto:rsmk.technologies@rsmk.co.in" className="text-lg md:text-xl text-slate-600 dark:text-slate-300 hover:text-primary transition-colors font-mono break-all mb-2">
                             rsmk.technologies@rsmk.co.in
                         </a>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm">For all official correspondence and inquiries.</p>
+                        <p className="text-slate-500 dark:text-slate-400 text-sm">Best channel for direct communication.</p>
                     </div>
 
                     <div className="glass-panel p-10 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors">

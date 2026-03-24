@@ -25,6 +25,10 @@ body {
   @apply bg-white text-secondary dark:bg-slate-950 dark:text-white transition-colors duration-300;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @apply font-heading font-bold tracking-tight text-secondary dark:text-white;
 }

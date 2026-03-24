@@ -41,14 +41,14 @@ export default function Blog() {
     return (
         <div className="pt-24 pb-20 container-padding min-h-screen">
             <Helmet>
-                <title>Insights | RSMK Technologies - Tech Trends & News</title>
-                <meta name="description" content="Stay updated with the latest trends in IoT, AI, and Software Engineering. Innovation insights from RSMK Technologies." />
+                <title>Build Notes | RSMK</title>
+                <meta name="description" content="Engineering notes, architecture decisions, and lessons learned while building products and experiments." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Insights & News</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Build Notes</h1>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Thoughts on technology, engineering, and the future of industry.
+                    Notes from the build process: what I tried, what failed, and what I shipped.
                 </p>
             </div>
 

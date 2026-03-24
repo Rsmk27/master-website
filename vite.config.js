@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import { VitePWA } from 'vite-plugin-pwa'
 import viteCompression from 'vite-plugin-compression'
 import sitemap from 'vite-plugin-sitemap'
 
@@ -9,52 +8,6 @@ import sitemap from 'vite-plugin-sitemap'
 export default defineConfig({
   plugins: [
     react(),
-
-    // PWA Configuration
-    VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'logo-v2.png', 'robots.txt'],
-      manifest: {
-        name: 'RSMK Technologies',
-        short_name: 'RSMK',
-        description: 'From Hardware to Software - Innovative technology solutions',
-        theme_color: '#06b6d4',
-        background_color: '#020617',
-        display: 'standalone',
-        start_url: '/',
-        icons: [
-          {
-            src: '/logo-v2.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/logo-v2.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,jpg,jpeg}'],
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
-            }
-          }
-        ]
-      }
-    }),
 
     // Compression for better performance
     viteCompression({

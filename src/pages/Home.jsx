@@ -2,149 +2,238 @@ import React, { useEffect } from 'react';
 import Hero from '@/components/home/Hero';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Code, Cpu, Activity, ArrowRight, ShieldCheck, Zap, Users } from 'lucide-react';
-
-const services = [
-    { title: 'Software Development', icon: Code, text: 'Enterprise-grade web and mobile applications built for scale.' },
-    { title: 'IoT & Embedded', icon: Cpu, text: 'Smart hardware integration and firmware solutions connecting the physical world.' },
-    { title: 'AI & Automation', icon: Activity, text: 'Intelligent systems and data analytics to optimize your business operations.' },
-];
+import { ArrowRight, Code2, Cpu, Bot, Server, Cloud, Workflow, Mail, Github, Linkedin } from 'lucide-react';
+import { projects, domains } from '@/data/ecosystem';
 
 export default function Home() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    const spotlightTitles = [
+        'ColorOhm App',
+        'Firefighter Monitoring Device (SFMD)',
+        'Budget Buddy',
+        'AI Chatbot',
+    ];
+
+    const spotlightProjects = spotlightTitles
+        .map((title) => projects.find((project) => project.title === title))
+        .filter(Boolean);
+
+    const stack = [
+        'React',
+        'TypeScript',
+        'Node.js',
+        'Firebase',
+        'Vite',
+        'TailwindCSS',
+        'Arduino',
+        'ESP32',
+        'REST APIs',
+        'GitHub Actions',
+    ];
+
+    const highlights = [
+        {
+            title: 'Software Engineering',
+            icon: Code2,
+            text: 'Designing and shipping full-stack applications with strong UX and practical outcomes.',
+        },
+        {
+            title: 'Embedded And IoT',
+            icon: Cpu,
+            text: 'Connecting sensors, firmware, cloud services, and dashboards into complete working systems.',
+        },
+        {
+            title: 'AI And Automation',
+            icon: Bot,
+            text: 'Building assistants and automation flows that reduce friction in real workflows.',
+        },
+    ];
+
     return (
         <main className="min-h-screen">
             <Helmet>
-                <title>RSMK Technologies | Software, IoT & Smart Technology Solutions</title>
-                <meta name="description" content="RSMK Technologies delivers expert Software Development, IoT, Embedded Systems, and AI solutions. Your partner in digital transformation." />
-                <meta name="keywords" content="Technology solutions company, Software and IoT solutions, Embedded systems development, AI and automation services, Smart energy & sustainable technology solutions" />
+                <title>Srinivas | Personal Showcase of Skills and Work</title>
+                <meta name="description" content="Personal showcase website of Srinivas featuring projects, technical skills, stack, and build notes in one place." />
+                <meta name="keywords" content="Srinivas portfolio, personal showcase, software projects, embedded systems, AI projects" />
             </Helmet>
 
             <Hero />
 
-            {/* About Preview */}
-            <section className="py-24 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            {/* Work Showcase */}
+            <section id="work" className="py-24 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
                 <div className="container-padding">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Who We Are</h2>
-                        <h3 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-6">
-                            Bridging the Gap Between Hardware and Software
-                        </h3>
-                        <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                            RSMK Technologies is a premier technology consulting firm. We don't just write code; we engineer complete systems.
-                            From the sensor on the ground to the cloud dashboard, we provide end-to-end expertise.
-                        </p>
-                        <Link to="/about-us" className="text-primary font-bold hover:underline inline-flex items-center">
-                            Read Our Story <ArrowRight className="ml-2" size={16} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Services Preview */}
-            <section className="py-24 bg-slate-50 dark:bg-slate-950">
-                <div className="container-padding">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
                         <div>
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-4">Our Core Expertise</h2>
-                            <p className="text-slate-600 dark:text-slate-400 max-w-xl">
-                                We deliver specialized solutions across critical technology domains.
+                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-4">Selected Work</h2>
+                            <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
+                                The latest builds that reflect how I solve real technical problems end-to-end.
                             </p>
                         </div>
-                        <Link to="/services" className="hidden md:inline-flex items-center text-primary font-semibold hover:text-primary-dark mt-4 md:mt-0">
-                            View All Services <ArrowRight className="ml-2" size={16} />
+                        <Link to="/projects" className="hidden md:inline-flex items-center text-primary font-semibold hover:text-primary-dark mt-4 md:mt-0">
+                            Open Full Project Archive <ArrowRight className="ml-2" size={16} />
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {services.map((s, i) => (
-                            <div key={i} className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow group">
-                                <s.icon className="text-primary mb-6 group-hover:scale-110 transition-transform" size={40} />
-                                <h3 className="text-xl font-bold mb-3 text-secondary dark:text-white font-heading">{s.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">{s.text}</p>
-                                <Link to="/services" className="text-sm font-semibold text-secondary dark:text-white hover:text-primary transition-colors flex items-center">
-                                    Learn More <ArrowRight className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity" size={14} />
-                                </Link>
-                            </div>
-                        ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                        {spotlightProjects.map((project) => {
+                            const Icon = project.icon;
+                            return (
+                                <a key={project.title} href={project.link} target="_blank" rel="noopener noreferrer" className="group block">
+                                    <article className="bg-white dark:bg-slate-950 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-md transition-all h-full">
+                                        <div className="h-44 overflow-hidden bg-slate-100 dark:bg-slate-800 rounded-lg mb-5">
+                                            {project.image ? (
+                                                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center">
+                                                    <Icon className="text-slate-400" size={36} />
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="text-xs font-semibold uppercase tracking-wider text-primary">{project.domain}</span>
+                                            <Icon className="text-slate-400 group-hover:text-primary transition-colors" size={18} />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-secondary dark:text-white mb-2">{project.title}</h3>
+                                        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
+                                        <span className="text-primary text-sm font-semibold inline-flex items-center">
+                                            Open Project <ArrowRight className="ml-1" size={14} />
+                                        </span>
+                                    </article>
+                                </a>
+                            );
+                        })}
                     </div>
 
                     <div className="md:hidden mt-8 text-center">
-                        <Link to="/services" className="inline-flex items-center text-primary font-semibold">
-                            View All Services <ArrowRight className="ml-2" size={16} />
+                        <Link to="/projects" className="inline-flex items-center text-primary font-semibold">
+                            Open Full Project Archive <ArrowRight className="ml-2" size={16} />
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* Why Choose Us */}
-            <section className="py-24 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+            {/* Skills */}
+            <section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
                 <div className="container-padding">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-6">
-                                Why Leading Companies Trust RSMK
-                            </h2>
-                            <div className="space-y-8">
-                                <div className="flex gap-4">
-                                    <div className="bg-blue-50 dark:bg-slate-800 p-3 rounded-lg h-fit text-primary flex-shrink-0"><ShieldCheck size={24} /></div>
-                                    <div>
-                                        <h4 className="text-xl font-bold mb-2 text-secondary dark:text-white">Enterprise-Grade Reliability</h4>
-                                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">Systems engineered for stability, security, and scalability from day one. We build technology that lasts.</p>
-                                    </div>
+                    <div className="max-w-3xl mx-auto text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-4">Skills And Build Areas</h2>
+                        <p className="text-slate-600 dark:text-slate-400">
+                            My core technical strengths and the domains where I build consistently.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {highlights.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                                <div key={item.title} className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow group">
+                                    <Icon className="text-primary mb-6 group-hover:scale-110 transition-transform" size={36} />
+                                    <h3 className="text-xl font-bold mb-3 text-secondary dark:text-white font-heading">{item.title}</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                        {item.text}
+                                    </p>
                                 </div>
-                                <div className="flex gap-4">
-                                    <div className="bg-blue-50 dark:bg-slate-800 p-3 rounded-lg h-fit text-primary flex-shrink-0"><Zap size={24} /></div>
-                                    <div>
-                                        <h4 className="text-xl font-bold mb-2 text-secondary dark:text-white">Rapid Innovation</h4>
-                                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">Agile methodologies that deliver value faster without compromising quality. We keep you ahead of the curve.</p>
-                                    </div>
-                                </div>
-                                <div className="flex gap-4">
-                                    <div className="bg-blue-50 dark:bg-slate-800 p-3 rounded-lg h-fit text-primary flex-shrink-0"><Users size={24} /></div>
-                                    <div>
-                                        <h4 className="text-xl font-bold mb-2 text-secondary dark:text-white">Client-Centric Partnership</h4>
-                                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">We work as an extension of your team, aligned with your business goals. Your success is our metric.</p>
-                                    </div>
-                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+                        <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+                            <h3 className="text-xl font-bold text-secondary dark:text-white mb-4">Engineering Domains</h3>
+                            <div className="space-y-3">
+                                {domains.map((domain) => {
+                                    const Icon = domain.icon;
+                                    return (
+                                        <div key={domain.id} className="flex items-center gap-3">
+                                            <Icon size={16} className="text-primary" />
+                                            <span className="text-sm text-slate-700 dark:text-slate-300">{domain.name}</span>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl blur-3xl"></div>
-                            <div className="relative bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-lg">
-                                <blockquote className="text-xl italic text-slate-600 dark:text-slate-300 mb-6 relative">
-                                    <span className="text-6xl text-primary/20 absolute -top-6 -left-2">"</span>
-                                    RSMK Technologies transformed our legacy systems into a modern, efficient digital ecosystem. Their expertise in both hardware and software is unmatched.
-                                </blockquote>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                        MR
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-secondary dark:text-white">Michael Ross</div>
-                                        <div className="text-sm text-slate-500">CTO, Manufacturing Corp</div>
-                                    </div>
-                                </div>
+
+                        <div id="stack" className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+                            <h3 className="text-xl font-bold text-secondary dark:text-white mb-4">Current Stack</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {stack.map((tech) => (
+                                    <span key={tech} className="px-3 py-1.5 text-sm rounded-full bg-blue-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                        {tech}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-24 bg-primary text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
+            {/* Journey */}
+            <section className="py-24 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+                <div className="container-padding">
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-8 text-center">
+                            Build Process
+                        </h2>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-slate-50 dark:bg-slate-950">
+                                <p className="text-sm uppercase tracking-wider text-primary font-semibold mb-3">01</p>
+                                <h3 className="text-xl font-bold text-secondary dark:text-white mb-2">Build Fast</h3>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm">I start with a working prototype quickly, then refine from real usage.</p>
+                            </div>
+                            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-slate-50 dark:bg-slate-950">
+                                <p className="text-sm uppercase tracking-wider text-primary font-semibold mb-3">02</p>
+                                <h3 className="text-xl font-bold text-secondary dark:text-white mb-2">Ship Publicly</h3>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm">Each project has a live link, so you can see outcomes instead of promises.</p>
+                            </div>
+                            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-slate-50 dark:bg-slate-950">
+                                <p className="text-sm uppercase tracking-wider text-primary font-semibold mb-3">03</p>
+                                <h3 className="text-xl font-bold text-secondary dark:text-white mb-2">Iterate Relentlessly</h3>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm">I track what breaks, improve architecture, and keep every build moving forward.</p>
+                            </div>
+                        </div>
+
+                        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+                                <Server className="text-primary mb-3" size={22} />
+                                <h4 className="font-bold text-secondary dark:text-white mb-1">System Design</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">I define architecture early so software and device logic scale together.</p>
+                            </div>
+                            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+                                <Cloud className="text-primary mb-3" size={22} />
+                                <h4 className="font-bold text-secondary dark:text-white mb-1">Deployment</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">Projects are deployed with production-like workflows, not only local demos.</p>
+                            </div>
+                            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+                                <Workflow className="text-primary mb-3" size={22} />
+                                <h4 className="font-bold text-secondary dark:text-white mb-1">Continuous Improvement</h4>
+                                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">I improve code quality and performance after launch through structured iterations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Contact */}
+            <section id="contact" className="py-24 bg-primary text-white relative overflow-hidden">
                 <div className="container-padding text-center relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 tracking-tight">Ready to Engineer Your Future?</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 tracking-tight">Let Us Connect</h2>
                     <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Let's discuss how RSMK Technologies can drive your digital transformation and build your next big solution.
+                        If you want to collaborate, review my work, or discuss a build idea, I am always open to meaningful conversations.
                     </p>
-                    <Link to="/contact" className="inline-block bg-white text-primary font-bold px-10 py-4 rounded-lg hover:bg-blue-50 transition-colors shadow-xl hover:shadow-2xl hover:-translate-y-1 transform duration-300">
-                        Get a Consultation
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="mailto:rsmk.technologies@rsmk.co.in" className="inline-flex items-center gap-2 bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors shadow-xl">
+                            <Mail size={18} /> Email Me
+                        </a>
+                        <a href="https://github.com/Rsmk27" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/60 text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                            <Github size={18} /> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/company/rsmktech" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/60 text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                            <Linkedin size={18} /> LinkedIn
+                        </a>
+                    </div>
                 </div>
             </section>
         </main>

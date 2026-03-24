@@ -6,6 +6,14 @@ import App from './App.jsx'
 import ErrorBoundary from './components/ErrorBoundary'
 import { ThemeProvider } from './context/ThemeContext'
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+            registration.unregister();
+        });
+    });
+}
+
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ErrorBoundary>

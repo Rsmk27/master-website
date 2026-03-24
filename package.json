@@ -39,9 +39,7 @@
     "typescript": "^5.9.3",
     "vite": "^7.2.4",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-pwa": "^1.2.0",
-    "vite-plugin-sitemap": "^0.8.2",
-    "workbox-window": "^7.4.0"
+    "vite-plugin-sitemap": "^0.8.2"
   },
   "overrides": {
     "react-helmet-async": {
