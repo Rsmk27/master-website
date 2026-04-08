@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import Hero from '@/components/home/Hero';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code2, Cpu, Bot, Server, Cloud, Workflow, Mail, Github, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Code2, Cpu, Bot, Server, Cloud, Workflow, Mail, Github, Linkedin, Zap, Wind } from 'lucide-react';
 import { projects, domains } from '@/data/ecosystem';
 
 export default function Home() {
@@ -22,33 +23,39 @@ export default function Home() {
         .filter(Boolean);
 
     const stack = [
-        'React',
-        'TypeScript',
-        'Node.js',
+        'C',
+        'Embedded C',
+        'Assembly',
+        'Python',
+        'MATLAB',
+        'React.js',
+        'Next.js',
         'Firebase',
-        'Vite',
-        'TailwindCSS',
-        'Arduino',
-        'ESP32',
-        'REST APIs',
-        'GitHub Actions',
+        'Firestore',
+        'React Native',
+        'Expo',
     ];
 
     const highlights = [
         {
-            title: 'Software Engineering',
-            icon: Code2,
-            text: 'Designing and shipping full-stack applications with strong UX and practical outcomes.',
-        },
-        {
-            title: 'Embedded And IoT',
+            title: 'Embedded Systems & Hardware',
             icon: Cpu,
-            text: 'Connecting sensors, firmware, cloud services, and dashboards into complete working systems.',
+            text: 'ESP32, ESP8266, Arduino, UART, I2C, SPI, MQTT, sensors, and actuators.',
         },
         {
-            title: 'AI And Automation',
-            icon: Bot,
-            text: 'Building assistants and automation flows that reduce friction in real workflows.',
+            title: 'Internet of Things',
+            icon: Cloud,
+            text: 'IoT system design, cloud integration, and live real-time monitoring solutions.',
+        },
+        {
+            title: 'Power Systems & Power Electronics',
+            icon: Zap,
+            text: 'Power generation, transmission, smart grid, converters, inverters, motor drives, and PWM control.',
+        },
+        {
+            title: 'Electrical Machines',
+            icon: Wind,
+            text: 'DC & AC machines, transformers, and electrical motor system fundamentals.',
         },
     ];
 
@@ -56,14 +63,14 @@ export default function Home() {
         <main className="min-h-screen">
             <Helmet>
                 <title>Srinivas | Personal Showcase of Skills and Work</title>
-                <meta name="description" content="Personal showcase website of Srinivas featuring projects, technical skills, stack, and build notes in one place." />
+                <meta name="description" content="Personal showcase of embedded systems, IoT, power systems, power electronics, electrical machines, and AI-assisted development skills." />
                 <meta name="keywords" content="Srinivas portfolio, personal showcase, software projects, embedded systems, AI projects" />
             </Helmet>
 
             <Hero />
 
             {/* Work Showcase */}
-            <section id="work" className="py-24 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            <motion.section id="work" className="py-24 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
                         <div>
@@ -113,15 +120,15 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* Skills */}
-            <section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
+            <motion.section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding">
                     <div className="max-w-3xl mx-auto text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-4">Skills And Build Areas</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-4">Core Skill Areas</h2>
                         <p className="text-slate-600 dark:text-slate-400">
-                            My core technical strengths and the domains where I build consistently.
+                            Focused expertise in embedded systems, IoT, power systems, electrical machines, and AI-assisted development.
                         </p>
                     </div>
 
@@ -168,10 +175,10 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* Journey */}
-            <section className="py-24 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+            <motion.section className="py-24 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-8 text-center">
@@ -214,10 +221,10 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* Contact */}
-            <section id="contact" className="py-24 bg-primary text-white relative overflow-hidden">
+            <motion.section id="contact" className="py-24 bg-primary text-white relative overflow-hidden" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 tracking-tight">Let Us Connect</h2>
                     <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -235,7 +242,7 @@ export default function Home() {
                         </a>
                     </div>
                 </div>
-            </section>
+            </motion.section>
         </main>
     );
 }

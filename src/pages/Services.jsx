@@ -1,35 +1,56 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Code, Cpu, Activity, Lightbulb } from 'lucide-react';
+import { Code, Cpu, Cloud, Sun, Zap, Wind, Bot } from 'lucide-react';
 
 const services = [
     {
-        id: 'software-development',
-        title: 'Software Products',
-        description: 'Web platforms, automation tools, and utility applications shipped as real, usable products.',
-        icon: Code,
-        features: ['Product Prototypes', 'Frontend + Backend Systems', 'Cloud Deployments', 'API Integrations']
-    },
-    {
-        id: 'iot-embedded-systems',
-        title: 'IoT & Embedded Builds',
-        description: 'Hardware-software experiments that connect sensors, microcontrollers, and intelligent automation workflows.',
+        id: 'embedded-systems-hardware',
+        title: 'Embedded Systems & Hardware',
+        description: 'ESP32, ESP8266, Arduino, communication protocols, sensors, and actuator integration.',
         icon: Cpu,
-        features: ['Firmware Experiments', 'Sensor Integration', 'Device Dashboards', 'Rapid Prototyping']
+        features: ['ESP32 & Arduino Design', 'UART / I2C / SPI / MQTT', 'Sensor & Actuator Interfaces', 'Firmware Architecture']
     },
     {
-        id: 'ai-automation',
-        title: 'AI & Automation',
-        description: 'Practical AI tools and workflows focused on speed, reliability, and useful day-to-day outcomes.',
-        icon: Activity,
-        features: ['AI Assistants', 'Automation Scripts', 'Data Workflows', 'Prompt-driven Interfaces']
+        id: 'internet-of-things',
+        title: 'Internet of Things',
+        description: 'IoT system design, cloud integration, and real-time monitoring solutions for connected products.',
+        icon: Cloud,
+        features: ['IoT System Architecture', 'Cloud Data Flows', 'Live Monitoring', 'Telemetry Dashboards']
     },
     {
-        id: 'smart-energy',
-        title: 'Smart Energy Experiments',
-        description: 'Hands-on projects around energy monitoring, optimization, and sustainability-focused engineering.',
-        icon: Lightbulb,
-        features: ['Energy Dashboards', 'Sustainable Systems', 'Green Tech Prototypes', 'Measurement Tooling']
+        id: 'programming-languages',
+        title: 'Programming Languages',
+        description: 'Low-level and engineering-first languages used for embedded, analytical, and systems development.',
+        icon: Code,
+        features: ['C & Embedded C', 'Assembly', 'Python', 'MATLAB']
+    },
+    {
+        id: 'power-systems',
+        title: 'Power Systems',
+        description: 'Power generation, transmission, distribution, smart grids, and MATLAB-based simulation studies.',
+        icon: Sun,
+        features: ['Power Generation', 'Transmission & Distribution', 'Smart Grid Concepts', 'MATLAB Simulation']
+    },
+    {
+        id: 'power-electronics',
+        title: 'Power Electronics',
+        description: 'Converters, inverters, motor drives, thyristors, choppers, and PWM control for practical power systems.',
+        icon: Zap,
+        features: ['Converters & Inverters', 'Motor Drives', 'Thyristors & Choppers', 'PWM Control']
+    },
+    {
+        id: 'electrical-machines',
+        title: 'Electrical Machines',
+        description: 'DC and AC machine fundamentals, transformer design, and electrical motor systems.',
+        icon: Wind,
+        features: ['DC Machines', 'AC Machines', 'Transformers', 'Electrical Motors']
+    },
+    {
+        id: 'additional-skills',
+        title: 'Additional Skills (AI-assisted)',
+        description: 'Web, app, and database development with AI-assisted workflow support.',
+        icon: Bot,
+        features: ['React.js', 'Next.js', 'Firebase', 'Firestore', 'React Native', 'Expo']
     }
 ];
 
@@ -38,7 +59,7 @@ export default function Services() {
         <div className="pt-24 pb-20 container-padding min-h-screen">
             <Helmet>
                 <title>Build Areas | RSMK Projects</title>
-                <meta name="description" content="Explore the main technical areas where RSMK builds software products, embedded systems, AI tools, and energy experiments." />
+                <meta name="description" content="Explore the main technical areas where RSMK builds embedded systems, IoT, power systems, electrical machines, and AI-assisted development tools." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">

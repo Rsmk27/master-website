@@ -13,7 +13,7 @@ const testimonials = [
         name: 'Sarah Johnson',
         role: 'Founder, GreenEnergy Solutions',
         image: '/api/placeholder/100/100',
-        content: 'Their smart energy systems have revolutionized our operations. Outstanding work from concept to deployment!',
+        content: 'Their power electronics and monitoring systems transformed our energy operations. Outstanding work from concept to deployment!',
         rating: 5,
     },
     {
@@ -27,7 +27,7 @@ const testimonials = [
         name: 'Emily Rodriguez',
         role: 'CEO, EduTech Inc',
         image: '/api/placeholder/100/100',
-        content: 'The Zest Academy platform they built is phenomenal. Student engagement has increased by 300%!',
+        content: 'The engineering workflow platform they built is phenomenal. Project clarity and delivery have improved dramatically!',
         rating: 5,
     },
 ];

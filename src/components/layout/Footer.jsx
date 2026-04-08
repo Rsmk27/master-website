@@ -13,7 +13,7 @@ export default function Footer() {
                             RSMK<span className="text-primary">.</span>
                         </Link>
                         <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
-                            Personal showcase of skills, projects, and engineering work across software, embedded, and AI domains.
+                            Showcase of embedded systems, IoT, power electronics, electrical machines, and AI-assisted engineering skills.
                         </p>
                     </div>
 

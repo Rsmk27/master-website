@@ -40,7 +40,7 @@ export default function EngineeringDomains() {
                                     </h3>
 
                                     <p className="text-slate-400 text-sm mb-6 flex-grow">
-                                        Specialized research and development division focused on {domain.name.toLowerCase()} solutions.
+                                        Specialized engineering focus on {domain.name.toLowerCase()} solutions.
                                     </p>
 
                                     <Link

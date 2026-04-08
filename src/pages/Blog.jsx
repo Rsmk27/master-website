@@ -8,7 +8,7 @@ const posts = [
         title: "The Future of IoT in Manufacturing",
         excerpt: "How connected devices are revolutionizing the industrial landscape through predictive maintenance and real-time monitoring.",
         date: "October 12, 2025",
-        category: "IoT",
+        category: "Internet of Things",
         readTime: "5 min read"
     },
     {
@@ -16,23 +16,23 @@ const posts = [
         title: "Scaling Sustainable Energy Solutions",
         excerpt: "Implementing smart grid technologies to optimize energy consumption and reduce carbon footprint.",
         date: "September 28, 2025",
-        category: "Smart Energy",
+        category: "Power Systems",
         readTime: "7 min read"
     },
     {
         id: 3,
         title: "AI-Driven Automation Trends",
-        excerpt: "Exploring the latest advancements in artificial intelligence and their impact on business process automation.",
+        excerpt: "Exploring the latest advancements in AI-assisted development and their impact on engineering workflows.",
         date: "September 15, 2025",
-        category: "AI & Automation",
+        category: "Additional Skills (AI-assisted)",
         readTime: "6 min read"
     },
     {
         id: 4,
         title: "Building Resilient Software Architectures",
-        excerpt: "Best practices for designing scalable and fault-tolerant software systems for enterprise applications.",
+        excerpt: "Best practices for designing scalable systems using engineering-grade programming tools.",
         date: "August 30, 2025",
-        category: "Software Engineering",
+        category: "Programming Languages",
         readTime: "8 min read"
     }
 ];

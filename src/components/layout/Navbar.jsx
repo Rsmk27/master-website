@@ -1,10 +1,46 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Layers, Cpu, Mail, BookOpen, Code2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('overview');
+    const location = useLocation();
+
+    useEffect(() => {
+        setIsOpen(false);
+    }, [location.pathname, location.hash]);
+
+    useEffect(() => {
+        const sectionIds = ['overview', 'work', 'skills', 'contact'];
+
+        const updateActiveSection = () => {
+            const scrollPosition = window.scrollY + 140;
+            let currentSection = 'overview';
+
+            sectionIds.forEach((id) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    if (scrollPosition >= offsetTop) {
+                        currentSection = id;
+                    }
+                }
+            });
+
+            setActiveSection(currentSection);
+        };
+
+        updateActiveSection();
+        window.addEventListener('scroll', updateActiveSection, { passive: true });
+        window.addEventListener('resize', updateActiveSection);
+
+        return () => {
+            window.removeEventListener('scroll', updateActiveSection);
+            window.removeEventListener('resize', updateActiveSection);
+        };
+    }, []);
 
     const onePageLinks = [
         { name: 'Overview', path: '/#overview', icon: Code2 },
@@ -32,15 +68,19 @@ export default function Navbar() {
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8">
-                    {onePageLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.path}
-                            className="text-sm font-medium transition-all duration-300 flex items-center gap-2 hover:text-primary text-slate-600 dark:text-slate-400"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
+                    {onePageLinks.map((link) => {
+                        const sectionId = link.path.split('#')[1];
+                        const isActive = activeSection === sectionId;
+                        return (
+                            <Link
+                                key={link.name}
+                                to={link.path}
+                                className={`text-sm font-medium transition-all duration-300 flex items-center gap-2 ${isActive ? 'text-primary font-semibold' : 'text-slate-600 dark:text-slate-400 hover:text-primary'}`}
+                            >
+                                {link.name}
+                            </Link>
+                        );
+                    })}
 
                     {routeLinks.map((link) => (
                         <NavLink

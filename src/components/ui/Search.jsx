@@ -6,7 +6,7 @@ const searchData = [
     { title: 'Home', path: '/', description: 'RSMK Technologies homepage' },
     { title: 'About', path: '/about', description: 'Learn about our vision and mission' },
     { title: 'Products', path: '/products', description: 'Explore our technology solutions' },
-    { title: 'Domains', path: '/domains', description: 'Engineering domains we specialize in' },
+    { title: 'Domains', path: '/domains', description: 'Engineering skills we specialize in' },
     { title: 'Ecosystem', path: '/ecosystem', description: 'Interactive ecosystem map' },
     { title: 'Contact', path: '/contact', description: 'Get in touch with us' },
     // Add more searchable content as needed

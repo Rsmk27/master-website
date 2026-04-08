@@ -7,7 +7,7 @@ export default function Projects() {
         <div className="pt-24 pb-20 container-padding min-h-screen">
             <Helmet>
                 <title>Projects | RSMK Build Portfolio</title>
-                <meta name="description" content="Explore live software products, embedded systems, AI tools, and engineering experiments built under RSMK." />
+                <meta name="description" content="Explore engineering projects built around embedded systems, IoT, power electronics, electrical machines, and AI-assisted development." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">

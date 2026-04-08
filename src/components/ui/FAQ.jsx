@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const faqs = [
     {
         question: 'What services does RSMK Technologies offer?',
-        answer: 'We provide comprehensive technology solutions spanning smart energy systems, IoT implementations, web/mobile development, AI tools, and educational platforms through Zest Academy.',
+        answer: 'We provide focused engineering solutions in embedded hardware, IoT systems, power electronics, electrical machines, programming languages, and AI-assisted applications.',
     },
     {
         question: 'How can I get started with your products?',

@@ -19,23 +19,20 @@ export default function Domains() {
 
     return (
         <div className="min-h-screen pt-24">
-            <SEO title="Engineering Domains" description="Discover our specialized research and development sectors including Web, IoT, and AI." />
+            <SEO title="Engineering Skills" description="A focused showcase of embedded systems, IoT, power systems, power electronics, electrical machines, and AI-assisted development skills." />
             <div className="max-w-7xl mx-auto px-6 mb-16">
-                <h1 className="text-4xl font-bold text-white mb-6">Engineering Domains</h1>
+                <h1 className="text-4xl font-bold text-white mb-6">Engineering Skills</h1>
                 <p className="text-slate-400 text-lg max-w-3xl">
-                    RSMK Technologies is organized into specialized research and development sectors.
-                    Each domain operates with specific goals and technical competencies.
+                    A compact overview of the exact technical capabilities supported by the website, with no unrelated disciplines included.
                 </p>
             </div>
 
             <div className="max-w-7xl mx-auto px-6 space-y-24 pb-24">
-                {domains.map((domain, index) => {
-                    const domainProjects = projects.filter(p => p.domain === domain.name);
+                {domains.map((domain) => {
                     const Icon = domain.icon;
 
                     return (
                         <section key={domain.id} id={domain.id} className="scroll-mt-28 border-l-2 border-slate-800 pl-8 relative">
-                            {/* Timeline Dot */}
                             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-950 border-2 border-cyan-500" />
 
                             <div className="flex items-center gap-4 mb-6">
@@ -46,25 +43,16 @@ export default function Domains() {
                             </div>
 
                             <p className="text-slate-400 leading-relaxed max-w-2xl mb-8">
-                                Focused on developing robust solutions within the scope of {domain.name.toLowerCase()}.
-                                This division handles everything from initial prototyping to full-scale deployment
-                                of relevant technologies.
+                                Core capabilities for {domain.name.toLowerCase()}, presented as a single focused skill set.
                             </p>
 
-                            {domainProjects.length > 0 ? (
-                                <div>
-                                    <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Active Projects</h3>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                        {domainProjects.map((p, i) => (
-                                            <ProjectCard key={i} project={p} index={i} />
-                                        ))}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {domain.skills.map((skill) => (
+                                    <div key={skill} className="rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+                                        <p className="text-slate-100 font-medium">{skill}</p>
                                     </div>
-                                </div>
-                            ) : (
-                                <div className="p-6 bg-slate-900/30 rounded border border-dashed border-slate-800 text-slate-500 font-mono text-sm">
-                                    No public projects active in this domain currently.
-                                </div>
-                            )}
+                                ))}
+                            </div>
                         </section>
                     );
                 })}

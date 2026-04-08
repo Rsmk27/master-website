@@ -30,7 +30,7 @@ function HoverFooter() {
                             <span className="text-white text-3xl font-bold">RSMK</span>
                         </div>
                         <p className="text-sm leading-relaxed text-gray-300 max-w-2xl">
-                            Electrical & Electronics Engineering Student | IoT & Embedded Systems Learner | Smart Energy & Automation Focus | Developing Practical, Reliable Tech Solutions
+                            Electrical & Electronics Engineering Student | Embedded Systems, IoT, Power Electronics, Electrical Machines, and AI-assisted Development | Building Practical, Reliable Tech Solutions
                         </p>
                     </div>
                 </div>

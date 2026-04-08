@@ -10,25 +10,25 @@ const timeline = [
     {
         year: '2021',
         title: 'First Products',
-        description: 'Launched our first suite of IoT solutions and smart energy systems.',
+        description: 'Launched the first embedded hardware and IoT deployments with sensor-driven monitoring.',
         icon: '⚡',
     },
     {
         year: '2022',
         title: 'Expansion',
-        description: 'Expanded into AI tools and educational platforms with Zest Academy.',
+        description: 'Expanded into AI-assisted development workflows, web tools, and app support systems.',
         icon: '🎓',
     },
     {
         year: '2023',
         title: 'Innovation Hub',
-        description: 'Established RSMK as a complete technology ecosystem with multiple successful deployments.',
+        description: 'Established RSMK as a focused engineering practice across power systems, electronics, and machine controls.',
         icon: '🌐',
     },
     {
         year: '2024',
         title: 'Global Reach',
-        description: 'Serving clients worldwide with cutting-edge technology solutions and sustainable practices.',
+        description: 'Serving clients worldwide with embedded, IoT, and power engineering solutions.',
         icon: '🌍',
     },
 ];

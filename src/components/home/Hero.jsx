@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowRight, Github, ExternalLink } from 'lucide-react';
+import RotatingText from './RotatingText';
 
 export default function Hero() {
     const navigate = useNavigate();
+
+    const phrases = useMemo(
+        () => ['embedded systems', 'IoT platforms', 'power electronics', 'AI-assisted web tools'],
+        []
+    );
 
     return (
         <section id="overview" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
@@ -15,10 +22,10 @@ export default function Hero() {
             </div>
 
             <div className="container-padding relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-                <div>
+                <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                     <div className="inline-flex items-center rounded-full border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 px-4 py-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 mb-8 backdrop-blur-sm shadow-sm transition-colors duration-300">
-                    <span className="flex h-2 w-2 rounded-full bg-primary mr-3 animate-pulse"></span>
-                    Personal showcase of shipped builds
+                        <span className="flex h-2 w-2 rounded-full bg-primary mr-3 animate-pulse"></span>
+                        Personal showcase of shipped builds
                     </div>
 
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-secondary dark:text-white mb-8 tracking-tight leading-[1.1]">
@@ -29,11 +36,22 @@ export default function Hero() {
                     </h1>
 
                     <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-3xl leading-relaxed font-light">
-                        I am Srinivas. I build software products, embedded systems, and AI tools.
+                        I am Srinivas. I build <RotatingText
+                            texts={phrases}
+                            mainClassName="px-2 sm:px-2 md:px-3 bg-primary/10 text-primary overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg inline-flex items-center min-h-[1.5rem] sm:min-h-[2rem] md:min-h-[2.5rem]"
+                            staggerFrom="last"
+                            initial={{ y: '100%' }}
+                            animate={{ y: 0 }}
+                            exit={{ y: '-120%' }}
+                            staggerDuration={0.025}
+                            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                            transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+                            rotationInterval={2000}
+                        /><br className="sm:hidden" /> and end-to-end systems.
                         This portfolio is my live archive of projects, technical depth, and ongoing experiments.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                    <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.15 }} className="flex flex-col sm:flex-row items-center gap-4">
                         <a
                             href="/#work"
                             className="px-8 py-4 bg-primary text-white rounded-lg font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 w-full sm:w-auto flex items-center justify-center group"
@@ -46,10 +64,10 @@ export default function Hero() {
                         >
                             Project Archive
                         </button>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
-                <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-md p-6 lg:p-8 shadow-xl">
+                <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.1, ease: 'easeOut' }} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-md p-6 lg:p-8 shadow-xl">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-xl font-bold text-secondary dark:text-white">At A Glance</h2>
                         <span className="text-xs font-semibold uppercase tracking-wider text-primary">Builder Profile</span>
@@ -72,7 +90,7 @@ export default function Hero() {
                             <ExternalLink size={16} /> Live Portfolio
                         </a>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

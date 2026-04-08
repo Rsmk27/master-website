@@ -25,6 +25,16 @@ body {
   @apply bg-white text-secondary dark:bg-slate-950 dark:text-white transition-colors duration-300;
 }
 
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+button,
+a {
+  @apply transition duration-300 ease-[cubic-bezier(0.4,0,0.2,1)];
+}
+
 html {
   scroll-behavior: smooth;
 }

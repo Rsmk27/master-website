@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import BackToTop from '@/components/ui/BackToTop';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import CookieConsent from '@/components/ui/CookieConsent';
+import ScrollProgress from '@/components/ui/ScrollProgress';
 import { IntroOverlay } from '@/components/ui/IntroOverlay';
 
 // Lazy load pages
@@ -53,6 +54,7 @@ export default function App() {
 
         {!loading && (
           <>
+            <ScrollProgress />
             <Navbar />
 
             <main className="flex-grow">
