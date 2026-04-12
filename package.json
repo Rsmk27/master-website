@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.2",
+    "3dsvg": "^0.2.1",
     "clsx": "^2.1.1",
     "color-bits": "^1.1.1",
     "framer-motion": "^12.23.24",
