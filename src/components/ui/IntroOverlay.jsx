@@ -14,7 +14,7 @@ const LogoAnimation = ({ onComplete }) => {
 
     useEffect(() => {
         // Fetch and inject the SVG
-        fetch('/trace.svg')
+        fetch('/rsmk.svg')
             .then(response => {
                 if (!response.ok) throw new Error('SVG not found');
                 return response.text();
@@ -29,7 +29,7 @@ const LogoAnimation = ({ onComplete }) => {
                 }
             })
             .catch(() => {
-                // Fallback placeholder SVG if trace.svg is missing
+                // Fallback placeholder SVG if rsmk.svg is missing
                 if (svgRef.current) {
                     svgRef.current.innerHTML = `
                         <svg viewBox="0 0 200 60" class="fallback-svg">
