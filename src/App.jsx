@@ -76,7 +76,7 @@ export default function App() {
 
             <BackToTop />
             <CookieConsent />
-            <div className="fixed top-24 right-4 z-50">
+            <div className="fixed bottom-20 right-4 md:bottom-auto md:top-24 z-50">
               <ThemeToggle />
             </div>
           </>

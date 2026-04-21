@@ -4,22 +4,22 @@ import { Mail, Linkedin, Twitter, Github } from 'lucide-react';
 
 export default function Contact() {
     return (
-        <div className="min-h-screen pt-24 pb-20 container-padding">
+        <div className="min-h-screen pt-24 pb-12 md:pb-20 container-padding">
             <Helmet>
                 <title>Contact | Srinivas Personal Showcase</title>
                 <meta name="description" content="Contact Srinivas for project collaborations, technical discussions, and engineering opportunities." />
             </Helmet>
 
             <div className="max-w-5xl mx-auto">
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold font-heading text-secondary dark:text-white mb-6">Contact & Collaboration</h1>
+                <div className="text-center mb-8 md:mb-12">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-secondary dark:text-white mb-4 md:mb-6">Contact & Collaboration</h1>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
                         Reach out if you want to discuss my work, collaborate on a build, or exchange technical ideas.
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className="glass-panel p-10 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-center text-center md:text-left transition-colors">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-center text-center md:text-left transition-colors">
                         <h3 className="text-xl font-bold text-secondary dark:text-white mb-4 flex items-center justify-center md:justify-start gap-3">
                             <div className="p-2 bg-blue-50 dark:bg-slate-800 rounded-lg text-primary"><Mail size={24} /></div>
                             Email Us
@@ -30,7 +30,7 @@ export default function Contact() {
                         <p className="text-slate-500 dark:text-slate-400 text-sm">Best channel for direct communication.</p>
                     </div>
 
-                    <div className="glass-panel p-10 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors">
+                    <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors">
                         <h3 className="text-xl font-bold text-secondary dark:text-white mb-6">Connect on Social</h3>
                         <div className="flex flex-col gap-4">
                             <a href="https://www.linkedin.com/company/rsmktech" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 p-3 rounded-lg transition-all group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">

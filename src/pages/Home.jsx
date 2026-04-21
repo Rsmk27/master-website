@@ -70,11 +70,11 @@ export default function Home() {
             <Hero />
 
             {/* Work Showcase */}
-            <motion.section id="work" className="py-24 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
+            <motion.section id="work" className="py-16 md:py-24 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-4">
                         <div>
-                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-4">Selected Work</h2>
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-2 md:mb-4">Selected Work</h2>
                             <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
                                 The latest builds that reflect how I solve real technical problems end-to-end.
                             </p>
@@ -84,7 +84,7 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                         {spotlightProjects.map((project) => {
                             const Icon = project.icon;
                             return (
@@ -123,21 +123,21 @@ export default function Home() {
             </motion.section>
 
             {/* Skills */}
-            <motion.section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
+            <motion.section id="skills" className="py-16 md:py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding">
-                    <div className="max-w-3xl mx-auto text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-4">Core Skill Areas</h2>
+                    <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-3 md:mb-4">Core Skill Areas</h2>
                         <p className="text-slate-600 dark:text-slate-400">
                             Focused expertise in embedded systems, IoT, power systems, electrical machines, and AI-assisted development.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                         {highlights.map((item) => {
                             const Icon = item.icon;
                             return (
-                                <div key={item.title} className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow group">
-                                    <Icon className="text-primary mb-6 group-hover:scale-110 transition-transform" size={36} />
+                                <div key={item.title} className="bg-white dark:bg-slate-900 p-5 sm:p-6 md:p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-md transition-shadow group">
+                                    <Icon className="text-primary mb-4 md:mb-6 group-hover:scale-110 transition-transform" size={30} />
                                     <h3 className="text-xl font-bold mb-3 text-secondary dark:text-white font-heading">{item.title}</h3>
                                     <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                                         {item.text}
@@ -147,7 +147,7 @@ export default function Home() {
                         })}
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-6 md:mt-10">
                         <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
                             <h3 className="text-xl font-bold text-secondary dark:text-white mb-4">Engineering Domains</h3>
                             <div className="space-y-3">
@@ -178,13 +178,13 @@ export default function Home() {
             </motion.section>
 
             {/* Journey */}
-            <motion.section className="py-24 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
+            <motion.section className="py-16 md:py-24 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding">
                     <div className="max-w-4xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-8 text-center">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-secondary dark:text-white mb-6 md:mb-8 text-center">
                             Build Process
                         </h2>
-                        <div className="grid md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                             <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-6 bg-slate-50 dark:bg-slate-950">
                                 <p className="text-sm uppercase tracking-wider text-primary font-semibold mb-3">01</p>
                                 <h3 className="text-xl font-bold text-secondary dark:text-white mb-2">Build Fast</h3>
@@ -202,7 +202,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="mt-6 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                             <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
                                 <Server className="text-primary mb-3" size={22} />
                                 <h4 className="font-bold text-secondary dark:text-white mb-1">System Design</h4>
@@ -224,20 +224,20 @@ export default function Home() {
             </motion.section>
 
             {/* Contact */}
-            <motion.section id="contact" className="py-24 bg-primary text-white relative overflow-hidden" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
+            <motion.section id="contact" className="py-16 md:py-24 bg-primary text-white relative overflow-hidden" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
                 <div className="container-padding text-center relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 tracking-tight">Let Us Connect</h2>
-                    <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold font-heading mb-4 md:mb-6 tracking-tight">Let Us Connect</h2>
+                    <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
                         If you want to collaborate, review my work, or discuss a build idea, I am always open to meaningful conversations.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="mailto:rsmk.technologies@rsmk.co.in" className="inline-flex items-center gap-2 bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors shadow-xl">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full">
+                        <a href="mailto:rsmk.technologies@rsmk.co.in" className="inline-flex items-center justify-center gap-2 bg-white text-primary font-bold px-6 py-3 sm:px-8 rounded-lg hover:bg-blue-50 transition-colors shadow-xl w-full sm:w-auto">
                             <Mail size={18} /> Email Me
                         </a>
-                        <a href="https://github.com/Rsmk27" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/60 text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                        <a href="https://github.com/Rsmk27" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-white/60 text-white font-bold px-6 py-3 sm:px-8 rounded-lg hover:bg-white/10 transition-colors w-full sm:w-auto">
                             <Github size={18} /> GitHub
                         </a>
-                        <a href="https://www.linkedin.com/company/rsmktech" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/60 text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                        <a href="https://www.linkedin.com/company/rsmktech" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-white/60 text-white font-bold px-6 py-3 sm:px-8 rounded-lg hover:bg-white/10 transition-colors w-full sm:w-auto">
                             <Linkedin size={18} /> LinkedIn
                         </a>
                     </div>

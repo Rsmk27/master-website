@@ -5,9 +5,9 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8 transition-colors duration-300">
+        <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-12 md:pt-16 pb-28 md:pb-8 transition-colors duration-300">
             <div className="container-padding">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
                     <div>
                         <Link to="/" className="text-2xl font-bold font-heading text-secondary dark:text-white mb-4 block">
                             RSMK<span className="text-primary">.</span>

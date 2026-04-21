@@ -56,22 +56,22 @@ const services = [
 
 export default function Services() {
     return (
-        <div className="pt-24 pb-20 container-padding min-h-screen">
+        <div className="pt-24 pb-12 md:pb-20 container-padding min-h-screen">
             <Helmet>
                 <title>Build Areas | RSMK Projects</title>
                 <meta name="description" content="Explore the main technical areas where RSMK builds embedded systems, IoT, power systems, electrical machines, and AI-assisted development tools." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Build Areas</h1>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-secondary dark:text-white font-heading">Build Areas</h1>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                     Instead of service packages, this page maps the domains where I keep building and shipping projects.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
                 {services.map((service) => (
-                    <div key={service.id} className="glass-panel p-8 rounded-xl hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary group bg-white dark:bg-slate-900">
+                    <div key={service.id} className="glass-panel p-6 sm:p-8 rounded-xl hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary group bg-white dark:bg-slate-900">
                         <div className="flex items-start justify-between mb-6">
                             <div className="p-3 bg-blue-50 dark:bg-slate-800 rounded-lg text-primary group-hover:scale-110 transition-transform">
                                 <service.icon size={32} />

@@ -39,22 +39,22 @@ const posts = [
 
 export default function Blog() {
     return (
-        <div className="pt-24 pb-20 container-padding min-h-screen">
+        <div className="pt-24 pb-12 md:pb-20 container-padding min-h-screen">
             <Helmet>
                 <title>Build Notes | RSMK</title>
                 <meta name="description" content="Engineering notes, architecture decisions, and lessons learned while building products and experiments." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-secondary dark:text-white font-heading">Build Notes</h1>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-secondary dark:text-white font-heading">Build Notes</h1>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                     Notes from the build process: what I tried, what failed, and what I shipped.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {posts.map(post => (
-                    <article key={post.id} className="glass-panel p-8 rounded-xl bg-white dark:bg-slate-900 hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-800 flex flex-col group">
+                    <article key={post.id} className="glass-panel p-6 sm:p-8 rounded-xl bg-white dark:bg-slate-900 hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-800 flex flex-col group">
                         <div className="flex items-center justify-between text-xs text-slate-500 mb-4 uppercase tracking-wider font-semibold">
                             <span className="text-primary bg-primary/10 px-2 py-1 rounded">{post.category}</span>
                             <span>{post.readTime}</span>
