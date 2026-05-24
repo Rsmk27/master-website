@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Layers, Cpu, Mail, BookOpen, Code2 } from 'lucide-react';
+import { Menu, X, Layers, Cpu, Mail, BookOpen, Code2, Bot } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -13,7 +13,7 @@ export default function Navbar() {
     }, [location.pathname, location.hash]);
 
     useEffect(() => {
-        const sectionIds = ['overview', 'work', 'skills', 'contact'];
+        const sectionIds = ['overview', 'ai-division', 'work', 'skills', 'contact'];
 
         const updateActiveSection = () => {
             const scrollPosition = window.scrollY + 140;
@@ -44,8 +44,9 @@ export default function Navbar() {
 
     const onePageLinks = [
         { name: 'Overview', path: '/#overview', icon: Code2 },
+        { name: 'AI Division', path: '/#ai-division', icon: Bot },
         { name: 'Work', path: '/#work', icon: Layers },
-        { name: 'Skills', path: '/#skills', icon: Cpu },
+        { name: 'Expertise', path: '/#skills', icon: Cpu },
         { name: 'Connect', path: '/#contact', icon: Mail },
     ];
 
@@ -62,7 +63,7 @@ export default function Navbar() {
                     <img src="/logo-v2.png" alt="RSMK Logo" className="w-10 h-10 rounded group-hover:scale-105 transition-transform duration-300" />
                     <div className="flex flex-col">
                         <span className="text-lg font-bold text-secondary dark:text-white tracking-tight leading-none font-heading">RSMK</span>
-                        <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em] leading-none">Builder Portfolio</span>
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em] leading-none">Technologies</span>
                     </div>
                 </NavLink>
 

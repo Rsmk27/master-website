@@ -6,15 +6,15 @@ export default function Contact() {
     return (
         <div className="min-h-screen pt-24 pb-12 md:pb-20 container-padding">
             <Helmet>
-                <title>Contact | Srinivas Personal Showcase</title>
-                <meta name="description" content="Contact Srinivas for project collaborations, technical discussions, and engineering opportunities." />
+                <title>Contact Us | RSMK Technologies</title>
+                <meta name="description" content="Get in touch with RSMK Technologies for project inquiries, technical collaborations, and software/hardware consultation." />
             </Helmet>
 
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-8 md:mb-12">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-secondary dark:text-white mb-4 md:mb-6">Contact & Collaboration</h1>
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-secondary dark:text-white mb-4 md:mb-6">Contact RSMK Technologies</h1>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-                        Reach out if you want to discuss my work, collaborate on a build, or exchange technical ideas.
+                        Get in touch with our engineering team to discuss partnerships, project builds, or technology solutions.
                     </p>
                 </div>
 

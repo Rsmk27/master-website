@@ -46,11 +46,11 @@ const services = [
         features: ['DC Machines', 'AC Machines', 'Transformers', 'Electrical Motors']
     },
     {
-        id: 'additional-skills',
-        title: 'Additional Skills (AI-assisted)',
-        description: 'Web, app, and database development with AI-assisted workflow support.',
+        id: 'software-web-engineering',
+        title: 'Software & Web Solutions',
+        description: 'Design, development, and deployment of scalable websites, native mobile apps, and real-time databases.',
         icon: Bot,
-        features: ['React.js', 'Next.js', 'Firebase', 'Firestore', 'React Native', 'Expo']
+        features: ['React.js & Next.js Webapps', 'React Native & Expo Apps', 'Firebase & Firestore Databases', 'Cloud Infrastructure Design']
     }
 ];
 
@@ -58,14 +58,14 @@ export default function Services() {
     return (
         <div className="pt-24 pb-12 md:pb-20 container-padding min-h-screen">
             <Helmet>
-                <title>Build Areas | RSMK Projects</title>
-                <meta name="description" content="Explore the main technical areas where RSMK builds embedded systems, IoT, power systems, electrical machines, and AI-assisted development tools." />
+                <title>Expertise & Services | RSMK Technologies</title>
+                <meta name="description" content="Explore RSMK Technologies' core engineering divisions including embedded systems, IoT development, power electronics, and scalable software solutions." />
             </Helmet>
 
             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-secondary dark:text-white font-heading">Build Areas</h1>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-secondary dark:text-white font-heading">Our Expertise & Services</h1>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Instead of service packages, this page maps the domains where I keep building and shipping projects.
+                    We offer specialized technology consultation and full-scale engineering design across our core tech divisions.
                 </p>
             </div>
 
