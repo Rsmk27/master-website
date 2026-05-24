@@ -4,7 +4,6 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BackToTop from '@/components/ui/BackToTop';
 import ThemeToggle from '@/components/ui/ThemeToggle';
-import CookieConsent from '@/components/ui/CookieConsent';
 import ScrollProgress from '@/components/ui/ScrollProgress';
 import { IntroOverlay } from '@/components/ui/IntroOverlay';
 
@@ -15,6 +14,9 @@ const Services = lazy(() => import('@/pages/Services'));
 const Projects = lazy(() => import('@/pages/Projects'));
 const Blog = lazy(() => import('@/pages/Blog'));
 const Contact = lazy(() => import('@/pages/Contact'));
+const Chat = lazy(() => import('@/pages/Chat'));
+const Privacy = lazy(() => import('@/pages/Privacy'));
+const Terms = lazy(() => import('@/pages/Terms'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 function ScrollToTop() {
@@ -67,6 +69,9 @@ export default function App() {
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/chat" element={<Chat />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/terms" element={<Terms />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
@@ -75,7 +80,6 @@ export default function App() {
             <Footer />
 
             <BackToTop />
-            <CookieConsent />
             <div className="fixed bottom-20 right-4 md:bottom-auto md:top-24 z-50">
               <ThemeToggle />
             </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Layers, Cpu, Mail, BookOpen, Code2, Bot } from 'lucide-react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -53,6 +53,7 @@ export default function Navbar() {
     const routeLinks = [
         { name: 'Projects', path: '/projects', icon: Layers },
         { name: 'Build Notes', path: '/blog', icon: BookOpen },
+        { name: 'Mani AI', path: '/chat', icon: Bot },
     ];
 
     return (

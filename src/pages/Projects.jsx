@@ -1,14 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '@/components/common/SEO';
 import { projects } from '@/data/ecosystem';
 
 export default function Projects() {
     return (
         <div className="pt-24 pb-12 md:pb-20 container-padding min-h-screen">
-            <Helmet>
-                <title>Products & Solutions | RSMK Technologies</title>
-                <meta name="description" content="Explore engineered products and technology solutions designed by RSMK Technologies across IoT, power electronics, and software engineering." />
-            </Helmet>
+            <SEO 
+                title="Products & Solutions" 
+                description="Explore engineered products and technology solutions designed by RSMK Technologies across IoT, power electronics, and software engineering." 
+                keywords="IoT products, electronics portfolio, hardware design projects, software applications" 
+                url="/projects" 
+            />
 
             <div className="text-center max-w-3xl mx-auto mb-16">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-secondary dark:text-white font-heading">Products & Solutions</h1>

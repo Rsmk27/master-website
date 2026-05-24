@@ -1,13 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '@/components/common/SEO';
 
 export default function About() {
     return (
         <div className="min-h-screen pt-24 container-padding pb-12 md:pb-20">
-            <Helmet>
-                <title>About Us | RSMK Technologies</title>
-                <meta name="description" content="Learn about RSMK Technologies, our core engineering philosophy, and our solutions in embedded systems, IoT, and artificial intelligence." />
-            </Helmet>
+            <SEO 
+                title="About Us" 
+                description="Learn about RSMK Technologies, our core engineering philosophy, and our solutions in embedded systems, IoT, and artificial intelligence." 
+                keywords="About RSMK Technologies, engineering philosophy, embedded systems, IoT, artificial intelligence" 
+                url="/about-us" 
+            />
 
             <div className="max-w-4xl mx-auto">
                 <div className="mb-16 text-center">

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Bot, User, Sparkles, Loader2, RefreshCw, MessageSquare } from 'lucide-react';
 
@@ -70,16 +70,6 @@ export default function ManiChat() {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
     const [coldStartNotice, setColdStartNotice] = useState(false);
-    const messagesEndRef = useRef(null);
-
-    // Auto-scroll to the bottom of the chat console
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    useEffect(() => {
-        scrollToBottom();
-    }, [messages, loading]);
 
     const handleSend = async (textToSend) => {
         const queryText = textToSend || input;
@@ -103,13 +93,24 @@ export default function ManiChat() {
             setColdStartNotice(true);
         }, 3000);
 
+        // Prepare history in the format expected by the API: { role: 'user' | 'assistant', content: string }[]
+        // (Excluding the new user message, which has not yet been processed/responded to)
+        const history = messages.map(msg => ({
+            role: msg.sender === 'user' ? 'user' : 'assistant',
+            content: msg.text
+        }));
+
         try {
             const response = await fetch('https://project-mani-c0t3.onrender.com/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ query: queryText })
+                body: JSON.stringify({
+                    query: queryText,
+                    siteContext: "User is on the RSMK Technologies website home page.",
+                    history: history
+                })
             });
 
             clearTimeout(coldStartTimer);
@@ -169,7 +170,6 @@ export default function ManiChat() {
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <span className="text-xs text-slate-400 dark:text-slate-500 font-mono hidden sm:inline">llama-3.3-70b-versatile</span>
                     <Sparkles size={16} className="text-primary animate-pulse" />
                 </div>
             </div>
@@ -208,7 +208,6 @@ export default function ManiChat() {
                                         isMani ? 'text-left' : 'text-right'
                                     }`}>
                                         {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                        {isMani && msg.model && <span className="ml-2 font-mono">• {msg.model}</span>}
                                     </div>
                                 </div>
                             </motion.div>
@@ -231,14 +230,13 @@ export default function ManiChat() {
                                 </span>
                                 <span className="text-sm text-slate-500 dark:text-slate-400">
                                     {coldStartNotice 
-                                        ? "Mani Core is cold-starting on Render (may take 20-30s)..." 
+                                        ? "Mani AI is preparing a response..." 
                                         : "Mani is thinking..."}
                                 </span>
                             </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <div ref={messagesEndRef} />
             </div>
 
             {/* Suggestion Prompts */}
@@ -286,7 +284,7 @@ export default function ManiChat() {
 
             {/* Render Server Sleep Notice */}
             <div className="bg-slate-100 dark:bg-slate-950/60 px-6 py-2 border-t border-slate-200 dark:border-slate-800/80 text-[10px] text-slate-500 dark:text-slate-400 text-center font-sans tracking-wide">
-                ℹ️ Mani's engine runs on Render. It goes to sleep during inactivity and may take up to 35 seconds to warm up on your first query.
+                ℹ️ Mani AI is powered by RSMK Technologies.
             </div>
         </div>
     );

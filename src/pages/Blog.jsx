@@ -1,6 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import SEO from '@/components/common/SEO';
 
 const posts = [
     {
@@ -40,10 +39,12 @@ const posts = [
 export default function Blog() {
     return (
         <div className="pt-24 pb-12 md:pb-20 container-padding min-h-screen">
-            <Helmet>
-                <title>Build Notes | RSMK</title>
-                <meta name="description" content="Engineering notes, architecture decisions, and lessons learned while building products and experiments." />
-            </Helmet>
+            <SEO 
+                title="Build Notes" 
+                description="Engineering notes, architecture decisions, and lessons learned while building products and experiments." 
+                keywords="RSMK build notes, engineering blog, systems architecture, IoT insights" 
+                url="/blog" 
+            />
 
             <div className="text-center max-w-3xl mx-auto mb-16">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-secondary dark:text-white font-heading">Build Notes</h1>
@@ -60,16 +61,16 @@ export default function Blog() {
                             <span>{post.readTime}</span>
                         </div>
                         <h2 className="text-2xl font-bold mb-3 font-heading text-secondary dark:text-white leading-tight hover:text-primary transition-colors cursor-pointer">
-                            <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                            <a href="https://blogs.rsmk.me" target="_blank" rel="noopener noreferrer">{post.title}</a>
                         </h2>
                         <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow">
                             {post.excerpt}
                         </p>
                         <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4 mt-auto">
                             <span className="text-sm text-slate-500">{post.date}</span>
-                            <Link to={`/blog/${post.id}`} className="text-primary font-semibold text-sm hover:translate-x-1 transition-transform inline-flex items-center">
+                            <a href="https://blogs.rsmk.me" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold text-sm hover:translate-x-1 transition-transform inline-flex items-center">
                                 Read Article &rarr;
-                            </Link>
+                            </a>
                         </div>
                     </article>
                 ))}

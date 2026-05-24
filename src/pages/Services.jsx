@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '@/components/common/SEO';
 import { Code, Cpu, Cloud, Sun, Zap, Wind, Bot } from 'lucide-react';
 
 const services = [
@@ -57,10 +57,12 @@ const services = [
 export default function Services() {
     return (
         <div className="pt-24 pb-12 md:pb-20 container-padding min-h-screen">
-            <Helmet>
-                <title>Expertise & Services | RSMK Technologies</title>
-                <meta name="description" content="Explore RSMK Technologies' core engineering divisions including embedded systems, IoT development, power electronics, and scalable software solutions." />
-            </Helmet>
+            <SEO 
+                title="Expertise & Services" 
+                description="Explore RSMK Technologies' core engineering divisions including embedded systems, IoT development, power electronics, and scalable software solutions." 
+                keywords="embedded systems, IoT engineering, power electronics, custom software, MATLAB simulations" 
+                url="/services" 
+            />
 
             <div className="text-center max-w-3xl mx-auto mb-16">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-secondary dark:text-white font-heading">Our Expertise & Services</h1>

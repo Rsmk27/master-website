@@ -1,14 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '@/components/common/SEO';
 import { Mail, Linkedin, Twitter, Github } from 'lucide-react';
 
 export default function Contact() {
     return (
         <div className="min-h-screen pt-24 pb-12 md:pb-20 container-padding">
-            <Helmet>
-                <title>Contact Us | RSMK Technologies</title>
-                <meta name="description" content="Get in touch with RSMK Technologies for project inquiries, technical collaborations, and software/hardware consultation." />
-            </Helmet>
+            <SEO 
+                title="Contact Us" 
+                description="Get in touch with RSMK Technologies for project inquiries, technical collaborations, and software/hardware consultation." 
+                keywords="contact RSMK Technologies, hardware consultation, software consultation, IoT partnerships" 
+                url="/contact" 
+            />
 
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-8 md:mb-12">
