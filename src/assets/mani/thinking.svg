@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="drop-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="body-grad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff5c5c" />
+      <stop offset="70%" stop-color="#dd1a1a" />
+      <stop offset="100%" stop-color="#990000" />
+    </radialGradient>
+    <radialGradient id="tentacle-grad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff4d4d" />
+      <stop offset="100%" stop-color="#aa0808" />
+    </radialGradient>
+    <radialGradient id="eye-grad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#2a2a2a" />
+      <stop offset="100%" stop-color="#050505" />
+    </radialGradient>
+    <!-- Thought bubble gradient -->
+    <linearGradient id="bubble-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f0f0f0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="100" cy="175" rx="65" ry="12" fill="url(#drop-shadow)" />
+
+  <!-- Thought Bubble -->
+  <g id="thought-bubble" opacity="0.95">
+    <circle cx="100" cy="28" r="14" fill="url(#bubble-grad)" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.1))" />
+    <circle cx="112" cy="24" r="9" fill="url(#bubble-grad)" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.1))" />
+    <circle cx="88" cy="26" r="9" fill="url(#bubble-grad)" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.1))" />
+    
+    <circle cx="106" cy="45" r="5" fill="url(#bubble-grad)" filter="drop-shadow(0px 1px 2px rgba(0,0,0,0.1))" />
+    <circle cx="102" cy="54" r="3" fill="url(#bubble-grad)" filter="drop-shadow(0px 1px 2px rgba(0,0,0,0.1))" />
+    
+    <!-- Dots inside thought bubble -->
+    <circle cx="92" cy="27" r="2" fill="#888888" />
+    <circle cx="100" cy="27" r="2" fill="#888888" />
+    <circle cx="108" cy="27" r="2" fill="#888888" />
+  </g>
+
+  <!-- Tentacles (3 base tentacles, the 4th is raised) -->
+  <g id="tentacles">
+    <circle cx="54" cy="154" r="16" fill="url(#tentacle-grad)" />
+    <circle cx="116" cy="164" r="17" fill="url(#tentacle-grad)" />
+    <circle cx="146" cy="154" r="16" fill="url(#tentacle-grad)" />
+  </g>
+
+  <!-- Main Round Plush Body -->
+  <circle cx="100" cy="105" r="62" fill="url(#body-grad)" />
+
+  <!-- Thinking raised tentacle (touching chin) -->
+  <path d="M 95 160 C 95 145, 115 130, 110 120 C 108 116, 102 118, 97 122 C 92 126, 92 140, 92 160 Z" fill="url(#tentacle-grad)" />
+
+  <!-- Eyes (Looking up & right) -->
+  <g id="eyes">
+    <!-- Left Eye -->
+    <circle cx="76" cy="100" r="12" fill="url(#eye-grad)" />
+    <circle cx="77" cy="94" r="4" fill="#ffffff" />
+    <circle cx="81" cy="99" r="1.8" fill="#ffffff" />
+
+    <!-- Right Eye -->
+    <circle cx="124" cy="100" r="12" fill="url(#eye-grad)" />
+    <circle cx="125" cy="94" r="4" fill="#ffffff" />
+    <circle cx="129" cy="99" r="1.8" fill="#ffffff" />
+  </g>
+
+  <!-- Mouth (Small pensive line/smile) -->
+  <path d="M 97 114 Q 100 112 103 114" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>

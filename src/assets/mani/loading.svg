@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="drop-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="body-grad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff5c5c" />
+      <stop offset="70%" stop-color="#dd1a1a" />
+      <stop offset="100%" stop-color="#990000" />
+    </radialGradient>
+    <radialGradient id="tentacle-grad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff4d4d" />
+      <stop offset="100%" stop-color="#aa0808" />
+    </radialGradient>
+    <radialGradient id="eye-grad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#2a2a2a" />
+      <stop offset="100%" stop-color="#050505" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="100" cy="175" rx="65" ry="12" fill="url(#drop-shadow)" />
+
+  <!-- Rotating Loading Dots (Drawn in circular layout above head) -->
+  <g id="loading-dots">
+    <circle cx="100" cy="20" r="3.5" fill="#3b82f6" opacity="0.2" />
+    <circle cx="114" cy="24" r="3.5" fill="#3b82f6" opacity="0.3" />
+    <circle cx="123" cy="35" r="3.5" fill="#3b82f6" opacity="0.5" />
+    <circle cx="120" cy="49" r="3.5" fill="#3b82f6" opacity="0.7" />
+    <circle cx="107" cy="57" r="3.5" fill="#3b82f6" opacity="0.9" />
+    <circle cx="93" cy="57" r="3.5" fill="#3b82f6" opacity="1.0" />
+    <circle cx="80" cy="49" r="3.5" fill="#3b82f6" opacity="0.8" />
+    <circle cx="77" cy="35" r="3.5" fill="#3b82f6" opacity="0.6" />
+    <circle cx="86" cy="24" r="3.5" fill="#3b82f6" opacity="0.4" />
+  </g>
+
+  <!-- Tentacles (4 tentacles arranged at the bottom) -->
+  <g id="tentacles">
+    <circle cx="54" cy="154" r="16" fill="url(#tentacle-grad)" />
+    <circle cx="84" cy="164" r="17" fill="url(#tentacle-grad)" />
+    <circle cx="116" cy="164" r="17" fill="url(#tentacle-grad)" />
+    <circle cx="146" cy="154" r="16" fill="url(#tentacle-grad)" />
+  </g>
+
+  <!-- Main Round Body -->
+  <circle cx="100" cy="105" r="62" fill="url(#body-grad)" />
+
+  <!-- Eyes (Looking up at loading dots) -->
+  <g id="eyes">
+    <circle cx="76" cy="100" r="12" fill="url(#eye-grad)" />
+    <circle cx="76" cy="94" r="4" fill="#ffffff" />
+    <circle cx="76" cy="100" r="1.8" fill="#ffffff" />
+
+    <circle cx="124" cy="100" r="12" fill="url(#eye-grad)" />
+    <circle cx="124" cy="94" r="4" fill="#ffffff" />
+    <circle cx="124" cy="100" r="1.8" fill="#ffffff" />
+  </g>
+
+  <!-- Mouth (Small cute flat line or slight smile) -->
+  <path d="M 97 116 Q 100 117 103 116" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>

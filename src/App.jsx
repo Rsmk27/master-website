@@ -6,6 +6,7 @@ import BackToTop from '@/components/ui/BackToTop';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import ScrollProgress from '@/components/ui/ScrollProgress';
 import { IntroOverlay } from '@/components/ui/IntroOverlay';
+import { ManiProvider } from '@/components/ManiProvider';
 
 // Lazy load pages
 const Home = lazy(() => import('@/pages/Home'));
@@ -48,8 +49,9 @@ export default function App() {
   };
 
   return (
-    <Router>
-      <div className="min-h-screen bg-white text-secondary dark:bg-slate-950 dark:text-white font-sans transition-colors duration-300 flex flex-col">
+    <ManiProvider>
+      <Router>
+        <div className="min-h-screen bg-white text-secondary dark:bg-slate-950 dark:text-white font-sans transition-colors duration-300 flex flex-col">
         <ScrollToTop />
 
         {loading && <IntroOverlay onComplete={handleIntroComplete} />}
@@ -86,6 +88,7 @@ export default function App() {
           </>
         )}
       </div>
-    </Router>
+      </Router>
+    </ManiProvider>
   );
 }

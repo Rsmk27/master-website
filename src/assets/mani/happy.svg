@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="drop-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="body-grad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff5c5c" />
+      <stop offset="70%" stop-color="#dd1a1a" />
+      <stop offset="100%" stop-color="#990000" />
+    </radialGradient>
+    <radialGradient id="tentacle-grad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff4d4d" />
+      <stop offset="100%" stop-color="#aa0808" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="100" cy="175" rx="65" ry="12" fill="url(#drop-shadow)" />
+
+  <!-- Sparkles -->
+  <!-- Left Star -->
+  <path d="M 35 60 Q 40 60 40 55 Q 40 60 45 60 Q 40 60 40 65 Q 40 60 35 60" fill="#ffca28" />
+  <path d="M 28 80 Q 31 80 31 77 Q 31 80 34 80 Q 31 80 31 83 Q 31 80 28 80" fill="#ffca28" />
+  <!-- Right Star -->
+  <path d="M 160 55 Q 165 55 165 50 Q 165 55 170 55 Q 165 55 165 60 Q 165 55 160 55" fill="#ffca28" />
+  <path d="M 172 75 Q 175 75 175 72 Q 175 75 178 75 Q 175 75 175 78 Q 175 75 172 75" fill="#ffca28" />
+
+  <!-- Tentacles (4 tentacles arranged at the bottom, shifted up 4px) -->
+  <g id="tentacles">
+    <circle cx="54" cy="150" r="16" fill="url(#tentacle-grad)" />
+    <circle cx="84" cy="160" r="17" fill="url(#tentacle-grad)" />
+    <circle cx="116" cy="160" r="17" fill="url(#tentacle-grad)" />
+    <circle cx="146" cy="150" r="16" fill="url(#tentacle-grad)" />
+  </g>
+
+  <!-- Main Round Plush Body (Slightly bounced up) -->
+  <circle cx="100" cy="101" r="62" fill="url(#body-grad)" />
+
+  <!-- Eyes (Happy Arch) -->
+  <g id="eyes">
+    <!-- Left Eye Arch -->
+    <path d="M 66 98 Q 76 86 86 98" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" fill="none" />
+    <!-- Right Eye Arch -->
+    <path d="M 114 98 Q 124 86 134 98" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  </g>
+
+  <!-- Happy Open Mouth -->
+  <path d="M 94 112 Q 100 125 106 112 Z" fill="#c62828" stroke="#1a1a1a" stroke-width="2.5" stroke-linejoin="round" />
+</svg>

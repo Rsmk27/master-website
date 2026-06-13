@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="drop-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="body-grad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff5c5c" />
+      <stop offset="70%" stop-color="#dd1a1a" />
+      <stop offset="100%" stop-color="#990000" />
+    </radialGradient>
+    <radialGradient id="tentacle-grad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff4d4d" />
+      <stop offset="100%" stop-color="#aa0808" />
+    </radialGradient>
+    <radialGradient id="eye-grad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#2a2a2a" />
+      <stop offset="100%" stop-color="#050505" />
+    </radialGradient>
+    <!-- Screen glow gradient -->
+    <linearGradient id="screen-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a5f3fc" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="100" cy="175" rx="65" ry="12" fill="url(#drop-shadow)" />
+
+  <!-- Code Bubble </> -->
+  <g id="code-bubble" opacity="0.9">
+    <rect x="25" y="42" width="36" height="24" rx="8" fill="#e2e8f0" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.1))" />
+    <path d="M 43 66 L 39 60 L 47 60 Z" fill="#e2e8f0" />
+    <text x="43" y="58" font-family="monospace" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">&lt;/&gt;</text>
+  </g>
+
+  <!-- Tentacles (2 base tentacles, the other 2 are typing) -->
+  <g id="tentacles">
+    <circle cx="54" cy="154" r="16" fill="url(#tentacle-grad)" />
+    <circle cx="146" cy="154" r="16" fill="url(#tentacle-grad)" />
+  </g>
+
+  <!-- Main Round Plush Body (Slightly tilted forward/down) -->
+  <circle cx="100" cy="107" r="62" fill="url(#body-grad)" />
+
+  <!-- Eyes (Looking down at laptop) -->
+  <g id="eyes">
+    <circle cx="76" cy="106" r="12" fill="url(#eye-grad)" />
+    <circle cx="74" cy="108" r="4" fill="#ffffff" />
+    <circle cx="78" cy="111" r="1.8" fill="#ffffff" />
+
+    <circle cx="124" cy="106" r="12" fill="url(#eye-grad)" />
+    <circle cx="122" cy="108" r="4" fill="#ffffff" />
+    <circle cx="126" cy="111" r="1.8" fill="#ffffff" />
+  </g>
+
+  <!-- Mouth -->
+  <path d="M 97 121 Q 100 124 103 121" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+  <!-- Screen Glow (light reflection on Mani's face) -->
+  <path d="M 70 125 L 130 125 L 145 155 L 55 155 Z" fill="url(#screen-glow)" />
+
+  <!-- Laptop (In front of Mani) -->
+  <g id="laptop">
+    <!-- Laptop screen (open lid) -->
+    <path d="M 62 135 L 138 135 L 144 163 L 56 163 Z" fill="#334155" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round" />
+    <!-- Small red octopus icon on laptop lid -->
+    <circle cx="100" cy="149" r="4" fill="#ef4444" />
+    <circle cx="97" cy="152" r="1.2" fill="#ef4444" />
+    <circle cx="100" cy="153" r="1.2" fill="#ef4444" />
+    <circle cx="103" cy="152" r="1.2" fill="#ef4444" />
+    
+    <!-- Laptop keyboard base -->
+    <path d="M 52 163 L 148 163 L 156 174 L 44 174 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2" stroke-linejoin="round" />
+    <!-- Spacebar and keys hint -->
+    <line x1="65" x2="135" y1="168" y2="168" stroke="#475569" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="85" x2="115" y1="171" y2="171" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <!-- Typing tentacles (Front-most tentacles typing on keyboard) -->
+  <g id="typing-tentacles">
+    <!-- Left typing arm -->
+    <path d="M 80 156 Q 74 156 82 166 Q 84 168 88 166 C 92 164 86 156 80 156 Z" fill="url(#tentacle-grad)" />
+    <!-- Right typing arm -->
+    <path d="M 120 156 Q 126 156 118 166 Q 116 168 112 166 C 108 164 114 156 120 156 Z" fill="url(#tentacle-grad)" />
+  </g>
+</svg>

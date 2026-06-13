@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="drop-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="body-grad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff5c5c" />
+      <stop offset="70%" stop-color="#dd1a1a" />
+      <stop offset="100%" stop-color="#990000" />
+    </radialGradient>
+    <radialGradient id="tentacle-grad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff4d4d" />
+      <stop offset="100%" stop-color="#aa0808" />
+    </radialGradient>
+    <radialGradient id="eye-grad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#2a2a2a" />
+      <stop offset="100%" stop-color="#050505" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ground Shadow (Smaller/faded to indicate Mani is in the air) -->
+  <ellipse cx="100" cy="180" rx="45" ry="8" fill="url(#drop-shadow)" />
+
+  <!-- Confetti -->
+  <!-- Blue rectangle -->
+  <rect x="35" y="45" width="6" height="10" rx="2" fill="#3b82f6" transform="rotate(25, 38, 50)" />
+  <!-- Yellow circle -->
+  <circle cx="50" cy="75" r="4.5" fill="#f59e0b" />
+  <!-- Purple triangle -->
+  <path d="M 160 60 L 166 70 L 154 70 Z" fill="#8b5cf6" transform="rotate(45, 160, 65)" />
+  <!-- Green rectangle -->
+  <rect x="145" y="40" width="10" height="6" rx="2" fill="#10b981" transform="rotate(-15, 150, 43)" />
+  <!-- Red dot -->
+  <circle cx="168" cy="90" r="3.5" fill="#ef4444" />
+  <!-- Cyan wave -->
+  <path d="M 30 100 Q 35 95 40 100 T 50 100" fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Tentacles (Raised in excitement - 4 tentacles total) -->
+  <g id="tentacles">
+    <!-- Raised back tentacles (2) -->
+    <path d="M 45 125 Q 30 110 36 96 Q 44 94 48 108 Z" fill="url(#tentacle-grad)" />
+    <path d="M 155 125 Q 170 110 164 96 Q 156 94 152 108 Z" fill="url(#tentacle-grad)" />
+    
+    <!-- Dangling bottom tentacles (2) -->
+    <circle cx="74" cy="148" r="16" fill="url(#tentacle-grad)" />
+    <circle cx="126" cy="148" r="16" fill="url(#tentacle-grad)" />
+  </g>
+
+  <!-- Main Round Body (Jumping up in the air) -->
+  <circle cx="100" cy="90" r="62" fill="url(#body-grad)" />
+
+  <!-- Eyes (Winking) -->
+  <g id="eyes">
+    <!-- Left Eye (Happy closed wink '>') -->
+    <path d="M 66 84 L 78 92 L 66 100" fill="none" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Right Eye (Open, glossy) -->
+    <circle cx="124" cy="85" r="12" fill="url(#eye-grad)" />
+    <circle cx="121" cy="81" r="4" fill="#ffffff" />
+    <circle cx="127" cy="88" r="1.8" fill="#ffffff" />
+  </g>
+
+  <!-- Smiling Open Mouth (Joyful) -->
+  <path d="M 92 97 Q 100 115 108 97 Z" fill="#c62828" stroke="#1a1a1a" stroke-width="2.5" stroke-linejoin="round" />
+</svg>

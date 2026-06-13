@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code2, Cpu, Bot, Server, Cloud, Workflow, Mail, Github, Linkedin, Zap, Wind, Sparkles } from 'lucide-react';
 import { projects, domains } from '@/data/ecosystem';
+import useMani from '@/hooks/useMani';
 
 export default function Home() {
+    const { setMood, showMessage } = useMani();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -156,8 +158,11 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <div className="space-y-4">
-                                <div className="flex gap-4">
+                             <div className="space-y-4">
+                                <div 
+                                    className="flex gap-4 p-2.5 rounded-xl hover:bg-slate-100/60 dark:hover:bg-slate-900/40 transition-colors cursor-default"
+                                    onMouseEnter={() => { setMood('thinking'); showMessage("I know our IoT devices inside and out! 🤖"); }}
+                                >
                                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-primary dark:text-cyan-400">
                                         <Bot size={22} />
                                     </div>
@@ -169,7 +174,10 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                <div className="flex gap-4">
+                                <div 
+                                    className="flex gap-4 p-2.5 rounded-xl hover:bg-slate-100/60 dark:hover:bg-slate-900/40 transition-colors cursor-default"
+                                    onMouseEnter={() => { setMood('coding'); showMessage("Need help connecting firmware to React dashboards? ⚡"); }}
+                                >
                                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-primary dark:text-cyan-400">
                                         <Workflow size={22} />
                                     </div>
@@ -181,7 +189,10 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                <div className="flex gap-4">
+                                <div 
+                                    className="flex gap-4 p-2.5 rounded-xl hover:bg-slate-100/60 dark:hover:bg-slate-900/40 transition-colors cursor-default"
+                                    onMouseEnter={() => { setMood('curious'); showMessage("I'm always checking system logs for optimizations! 🔍"); }}
+                                >
                                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-primary dark:text-cyan-400">
                                         <Sparkles size={22} />
                                     </div>
@@ -197,6 +208,7 @@ export default function Home() {
                             <div className="pt-2">
                                 <Link 
                                     to="/chat" 
+                                    onMouseEnter={() => { setMood('happy'); showMessage("Click here to start a full chat workspace with me! 🚀"); }}
                                     className="inline-flex items-center gap-2 bg-primary hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 group"
                                 >
                                     Launch Mani AI Workspace 

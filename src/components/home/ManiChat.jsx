@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Bot, User, Sparkles, Loader2, RefreshCw, MessageSquare } from 'lucide-react';
+import useMani from '@/hooks/useMani';
 
 const SUGGESTIONS = [
     "Who is Mani?",
@@ -60,6 +61,7 @@ const formatMarkdown = (text) => {
 };
 
 export default function ManiChat() {
+    const { mood, setMood } = useMani();
     const [messages, setMessages] = useState([
         {
             sender: 'mani',
@@ -70,6 +72,26 @@ export default function ManiChat() {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
     const [coldStartNotice, setColdStartNotice] = useState(false);
+
+    // Debounced typing effect to transition Mani to/from coding mood
+    useEffect(() => {
+        if (input.trim() === '') return;
+
+        const delayDebounceFn = setTimeout(() => {
+            if (mood === 'coding' && !loading) {
+                setMood('idle');
+            }
+        }, 1200);
+
+        return () => clearTimeout(delayDebounceFn);
+    }, [input, mood, loading, setMood]);
+
+    const handleInputChange = (e) => {
+        setInput(e.target.value);
+        if (!loading && mood !== 'thinking' && mood !== 'sleeping') {
+            setMood('coding');
+        }
+    };
 
     const handleSend = async (textToSend) => {
         const queryText = textToSend || input;
@@ -86,6 +108,7 @@ export default function ManiChat() {
         };
         setMessages(prev => [...prev, userMessage]);
         setLoading(true);
+        setMood('thinking');
         setColdStartNotice(false);
 
         // Timer to trigger the cold-start notice if the server takes more than 3 seconds to respond
@@ -129,11 +152,13 @@ export default function ManiChat() {
                     timestamp: new Date(),
                     model: data.model
                 }]);
+                setMood('happy');
             } else {
                 throw new Error(data.error || "An unknown response error occurred.");
             }
         } catch (err) {
             console.error("Mani API Error:", err);
+            setMood('confused');
             setMessages(prev => [...prev, {
                 sender: 'mani',
                 text: "⚠️ **System Communication Issue:** I couldn't reach my core brains. The RSMK AI Division server might be updating or cold-starting. Please try again in a few moments.",
@@ -268,7 +293,7 @@ export default function ManiChat() {
                 <input
                     type="text"
                     value={input}
-                    onChange={(e) => setInput(e.target.value)}
+                    onChange={handleInputChange}
                     placeholder="Ask Mani anything about RSMK Technologies..."
                     disabled={loading}
                     className="flex-grow bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:border-primary dark:focus:border-cyan-500 rounded-xl px-4 py-3 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-primary dark:focus:ring-cyan-500 transition-all disabled:opacity-60"
