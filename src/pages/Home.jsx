@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Code2, Cpu, Bot, Server, Cloud, Workflow, Mail, Github, Linkedin, Zap, Wind, Sparkles } from 'lucide-react';
 import { projects, domains } from '@/data/ecosystem';
 import useMani from '@/hooks/useMani';
+import ManiMascot from '@/components/ManiMascot';
 
 export default function Home() {
     const { setMood, showMessage } = useMani();
@@ -217,93 +218,14 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* Right Column: Glassmorphic Chat Mockup */}
-                        <div className="lg:col-span-6 relative">
+                        {/* Right Column: Mani Mascot (Large size) */}
+                        <div className="lg:col-span-6 relative flex items-center justify-center min-h-[400px]">
                             {/* Decorative background glows */}
-                            <div className="absolute -top-12 -left-12 w-64 h-64 bg-primary/10 dark:bg-cyan-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                            <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-blue-500/10 dark:bg-indigo-500/10 rounded-full blur-3xl -z-10 animate-pulse delay-75"></div>
+                            <div className="absolute -top-12 -left-12 w-72 h-72 bg-primary/10 dark:bg-cyan-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                            <div className="absolute -bottom-12 -right-12 w-72 h-72 bg-blue-500/10 dark:bg-indigo-500/10 rounded-full blur-3xl -z-10 animate-pulse delay-75"></div>
 
-                            <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 relative group">
-                                
-                                {/* Mockup Header */}
-                                <div className="bg-slate-50/50 dark:bg-slate-950/60 px-5 py-3.5 border-b border-slate-200 dark:border-slate-800/60 flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary relative">
-                                            <Bot size={18} />
-                                            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white dark:border-slate-900 rounded-full"></span>
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-slate-800 dark:text-white text-xs font-heading leading-tight">
-                                                Mani AI Assistant
-                                            </h4>
-                                            <p className="text-[9px] text-slate-500 dark:text-slate-400 font-mono leading-none">
-                                                Motto: "AI for easy life"
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="w-2 h-2 rounded-full bg-red-400/80"></div>
-                                </div>
-
-                                {/* Mockup Message Pane */}
-                                <div className="p-5 space-y-4 h-[280px] overflow-hidden select-none relative">
-                                    
-                                    {/* Message 1 (Mani) */}
-                                    <div className="flex gap-2.5 max-w-[85%] mr-auto">
-                                        <div className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 text-xs shadow-sm">
-                                            <Bot size={14} />
-                                        </div>
-                                        <div className="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 p-3 rounded-2xl rounded-tl-none border border-slate-100 dark:border-slate-800/60 shadow-sm text-xs leading-relaxed">
-                                            Hello! I am <strong>Mani</strong>, the official AI assistant of <strong>RSMK Technologies</strong>. How can I help you today?
-                                        </div>
-                                    </div>
-
-                                    {/* Message 2 (User) */}
-                                    <div className="flex gap-2.5 max-w-[85%] ml-auto flex-row-reverse">
-                                        <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 flex items-center justify-center flex-shrink-0 text-xs">
-                                            U
-                                        </div>
-                                        <div className="bg-primary text-white p-3 rounded-2xl rounded-tr-none shadow-sm text-xs leading-relaxed">
-                                            What is BudgetBuddy?
-                                        </div>
-                                    </div>
-
-                                    {/* Message 3 (Mani) */}
-                                    <div className="flex gap-2.5 max-w-[85%] mr-auto">
-                                        <div className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 text-xs shadow-sm">
-                                            <Bot size={14} />
-                                        </div>
-                                        <div className="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 p-3 rounded-2xl rounded-tl-none border border-slate-100 dark:border-slate-800/60 shadow-sm text-xs leading-relaxed">
-                                            BudgetBuddy is an Android expense tracking app built by RSMK Technologies using React Native and Expo, featuring clean visualization models.
-                                        </div>
-                                    </div>
-
-                                    {/* Glass Overlay with Blur and Link */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-50/95 via-slate-50/70 to-transparent dark:from-slate-950/95 dark:via-slate-950/70 dark:to-transparent flex items-center justify-center p-6 transition-all duration-300 group-hover:backdrop-blur-[1px]">
-                                        <Link 
-                                            to="/chat" 
-                                            className="transform translate-y-2 group-hover:translate-y-0 opacity-90 group-hover:opacity-100 transition-all duration-300 inline-flex flex-col items-center gap-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-2xl text-center max-w-xs hover:border-primary dark:hover:border-cyan-500/50 group/btn"
-                                        >
-                                            <div className="w-12 h-12 rounded-full bg-primary/10 text-primary dark:text-cyan-400 flex items-center justify-center mx-auto group-hover/btn:scale-110 transition-transform duration-300">
-                                                <Bot size={24} />
-                                            </div>
-                                            <div>
-                                                <h5 className="font-bold text-slate-800 dark:text-white text-sm">Open Live Chat</h5>
-                                                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                                                    Start a real-time conversation with Mani AI
-                                                </p>
-                                            </div>
-                                            <span className="text-xs text-primary dark:text-cyan-400 font-semibold inline-flex items-center gap-1 mt-1">
-                                                Start Chatting <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
-                                            </span>
-                                        </Link>
-                                    </div>
-
-                                </div>
-
-                                {/* Mockup footer */}
-                                <div className="bg-slate-50/30 dark:bg-slate-950/20 px-5 py-2.5 border-t border-slate-200 dark:border-slate-800/60 text-[9px] text-slate-400 dark:text-slate-500 text-center font-sans tracking-wide">
-                                    Interactive Workspace Available 
-                                </div>
+                            <div className="transform hover:scale-105 transition-transform duration-500 ease-out flex flex-col items-center cursor-default">
+                                <ManiMascot className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 drop-shadow-2xl" />
                             </div>
                         </div>
                     </div>

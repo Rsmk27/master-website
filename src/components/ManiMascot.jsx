@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import useMani from '../hooks/useMani';
 import { maniSounds } from '../utils/maniSounds';
 
-export default function ManiMascot() {
+export default function ManiMascot({ className = "w-32 h-32 md:w-36 md:h-36" }) {
   const { mood, celebrate, setMood, completeGoal } = useMani();
   const mascotRef = useRef(null);
   const [isBlinking, setIsBlinking] = useState(false);
@@ -139,7 +139,7 @@ export default function ManiMascot() {
   return (
     <motion.div
       ref={mascotRef}
-      className="w-32 h-32 md:w-36 md:h-36 cursor-grab active:cursor-grabbing select-none relative group"
+      className={`${className} cursor-grab active:cursor-grabbing select-none relative group`}
       variants={floatVariants}
       animate="animate"
       whileHover={{ scale: 1.05 }}
